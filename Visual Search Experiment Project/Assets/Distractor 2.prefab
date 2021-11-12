@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6730783789780400008}
   - component: {fileID: 6730783789780400009}
   m_Layer: 0
-  m_Name: Distractor
+  m_Name: Distractor 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 1871718307313364148}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -60,7 +60,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: cb990fa1373393d4ab2a3925d830b5a7, type: 2}
+  - {fileID: 2100000, guid: 7be692f56453faa4aacad3dfb780ade4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -370,6 +370,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 67274777}
+  - component: {fileID: 67274778}
   m_Layer: 0
   m_Name: TrialHandler
   m_TagString: Untagged
@@ -385,13 +386,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 67274776}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.3722987, y: 1.9337521, z: -5.532521}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 570760850}
+  - {fileID: 1395110925}
+  - {fileID: 1929456984}
+  - {fileID: 1861511448}
+  - {fileID: 984433203}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &67274778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 67274776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f86126f57a2bf9f4eb64d03759b28b7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nReps: 3
 --- !u!4 &87261403 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2101651999073148174, guid: ee56946352dcb114caef7c0d973de14c,
@@ -1582,50 +1599,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee56946352dcb114caef7c0d973de14c, type: 3}
---- !u!1 &570760849
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 570760850}
-  - component: {fileID: 570760851}
-  m_Layer: 0
-  m_Name: Trial
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &570760850
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570760849}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 67274777}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &570760851
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 570760849}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 662b1d64231d2dc459cb10ee0ea4d0a3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetPresent: 1
 --- !u!4 &573698514 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2101651999073148174, guid: ee56946352dcb114caef7c0d973de14c,
@@ -1919,6 +1892,231 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1709336497}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &843180732
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 67274777}
+    m_Modifications:
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.name
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: numberOfDistractors
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[0].name
+      value: Green Distractor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[1].name
+      value: Red Distractor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[2].name
+      value: Target
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[0].model
+      value: 
+      objectReference: {fileID: 1871718307313364148, guid: e4d6c901ee4fa5445a64fe94efa2a3cd,
+        type: 3}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[1].model
+      value: 
+      objectReference: {fileID: 1871718307313364148, guid: 9f163d2d4b720ce44b3904bf9ffc2ea9,
+        type: 3}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[2].model
+      value: 
+      objectReference: {fileID: 1871718307313364148, guid: e4d6c901ee4fa5445a64fe94efa2a3cd,
+        type: 3}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[0].rotation
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[1].rotation
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[2].isTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[2].rotation
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[0].frequency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[1].frequency
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[2].frequency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[0].name
+      value: Green-Distractor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[1].name
+      value: Red-Distractor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[2].name
+      value: Green-Target
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[0].model
+      value: 
+      objectReference: {fileID: 1871718307313364148, guid: e4d6c901ee4fa5445a64fe94efa2a3cd,
+        type: 3}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[1].model
+      value: 
+      objectReference: {fileID: 1871718307313364148, guid: 9f163d2d4b720ce44b3904bf9ffc2ea9,
+        type: 3}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[2].model
+      value: 
+      objectReference: {fileID: 1871718307313364148, guid: e4d6c901ee4fa5445a64fe94efa2a3cd,
+        type: 3}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[0].rotation
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[1].rotation
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[2].isTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[2].rotation
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[0].frequency
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[1].frequency
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[2].frequency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925727610581289009, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_Name
+      value: Easy - Target Present
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 97c6b417b33dfed44bc8e217e7d60c90, type: 3}
 --- !u!4 &866178520 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2101651999073148174, guid: ee56946352dcb114caef7c0d973de14c,
@@ -2161,6 +2359,237 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2101651999073148174, guid: ee56946352dcb114caef7c0d973de14c,
     type: 3}
   m_PrefabInstance: {fileID: 141505618}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &984433202
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 67274777}
+    m_Modifications:
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.name
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: numberOfDistractors
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[0].name
+      value: Green Distractor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[1].name
+      value: Red Distractor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[2].name
+      value: Target
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[0].model
+      value: 
+      objectReference: {fileID: 1871718307313364148, guid: e4d6c901ee4fa5445a64fe94efa2a3cd,
+        type: 3}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[1].model
+      value: 
+      objectReference: {fileID: 1871718307313364148, guid: 9f163d2d4b720ce44b3904bf9ffc2ea9,
+        type: 3}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[2].model
+      value: 
+      objectReference: {fileID: 1871718307313364148, guid: e4d6c901ee4fa5445a64fe94efa2a3cd,
+        type: 3}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[0].rotation
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[1].rotation
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[2].isTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[2].rotation
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[0].frequency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[1].frequency
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[2].frequency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[0].name
+      value: Green-Distractor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[1].name
+      value: Red-Distractor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[2].name
+      value: Green-Target
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[0].model
+      value: 
+      objectReference: {fileID: 1871718307313364148, guid: e4d6c901ee4fa5445a64fe94efa2a3cd,
+        type: 3}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[1].model
+      value: 
+      objectReference: {fileID: 1871718307313364148, guid: 9f163d2d4b720ce44b3904bf9ffc2ea9,
+        type: 3}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[2].model
+      value: 
+      objectReference: {fileID: 1871718307313364148, guid: e4d6c901ee4fa5445a64fe94efa2a3cd,
+        type: 3}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[0].rotation
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[1].rotation
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[2].isTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[2].rotation
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[0].frequency
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[1].frequency
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[2].frequency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925727610581289009, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_Name
+      value: Hard - Target Absent
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 97c6b417b33dfed44bc8e217e7d60c90, type: 3}
+--- !u!4 &984433203 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+    type: 3}
+  m_PrefabInstance: {fileID: 984433202}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &1002559177 stripped
 Transform:
@@ -2666,6 +3095,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2012286909}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1395110925 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+    type: 3}
+  m_PrefabInstance: {fileID: 843180732}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1445005209
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2994,11 +3429,17 @@ MonoBehaviour:
   numDistractors: 4
   distractorTypes:
   - model: {fileID: 1871718307313364148, guid: e4d6c901ee4fa5445a64fe94efa2a3cd, type: 3}
-    frequency: 2
-    rotation: 0
+    frequency: 1
+    rotation: -45
+    isTarget: 1
+  - model: {fileID: 1871718307313364148, guid: e4d6c901ee4fa5445a64fe94efa2a3cd, type: 3}
+    frequency: 6
+    rotation: 45
+    isTarget: 0
   - model: {fileID: 1871718307313364148, guid: 9f163d2d4b720ce44b3904bf9ffc2ea9, type: 3}
-    frequency: 2
-    rotation: 0
+    frequency: 6
+    rotation: -45
+    isTarget: 0
 --- !u!4 &1516176289 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2101651999073148174, guid: ee56946352dcb114caef7c0d973de14c,
@@ -3191,102 +3632,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1667958144
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1667958148}
-  - component: {fileID: 1667958147}
-  - component: {fileID: 1667958146}
-  - component: {fileID: 1667958145}
-  m_Layer: 0
-  m_Name: Target
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!64 &1667958145
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1667958144}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1667958146
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1667958144}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 824f1c7b391707545985d7feec101e03, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1667958147
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1667958144}
-  m_Mesh: {fileID: 10210, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1667958148
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1667958144}
-  m_LocalRotation: {x: -0, y: -0, z: -0.3826831, w: 0.9238797}
-  m_LocalPosition: {x: -11.62, y: 7.15, z: -0.38}
-  m_LocalScale: {x: 1.7604003, y: 1.7604003, z: 5.791364}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -45}
 --- !u!1001 &1694875181
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3723,6 +4068,237 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+--- !u!1001 &1861511447
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 67274777}
+    m_Modifications:
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.name
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: numberOfDistractors
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[0].name
+      value: Green Distractor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[1].name
+      value: Red Distractor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[2].name
+      value: Target
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[0].model
+      value: 
+      objectReference: {fileID: 1871718307313364148, guid: e4d6c901ee4fa5445a64fe94efa2a3cd,
+        type: 3}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[1].model
+      value: 
+      objectReference: {fileID: 1871718307313364148, guid: 9f163d2d4b720ce44b3904bf9ffc2ea9,
+        type: 3}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[2].model
+      value: 
+      objectReference: {fileID: 1871718307313364148, guid: e4d6c901ee4fa5445a64fe94efa2a3cd,
+        type: 3}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[0].rotation
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[1].rotation
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[2].isTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[2].rotation
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[0].frequency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[1].frequency
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[2].frequency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[0].name
+      value: Green-Distractor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[1].name
+      value: Red-Distractor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[2].name
+      value: Green-Target
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[0].model
+      value: 
+      objectReference: {fileID: 1871718307313364148, guid: e4d6c901ee4fa5445a64fe94efa2a3cd,
+        type: 3}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[1].model
+      value: 
+      objectReference: {fileID: 1871718307313364148, guid: 9f163d2d4b720ce44b3904bf9ffc2ea9,
+        type: 3}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[2].model
+      value: 
+      objectReference: {fileID: 1871718307313364148, guid: e4d6c901ee4fa5445a64fe94efa2a3cd,
+        type: 3}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[0].rotation
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[1].rotation
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[2].isTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[2].rotation
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[0].frequency
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[1].frequency
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[2].frequency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925727610581289009, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_Name
+      value: Hard - Target Present
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 97c6b417b33dfed44bc8e217e7d60c90, type: 3}
+--- !u!4 &1861511448 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+    type: 3}
+  m_PrefabInstance: {fileID: 1861511447}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1880844189 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2101651999073148174, guid: ee56946352dcb114caef7c0d973de14c,
@@ -3893,6 +4469,237 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ee56946352dcb114caef7c0d973de14c, type: 3}
+--- !u!1001 &1929456983
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 67274777}
+    m_Modifications:
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.name
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: numberOfDistractors
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[0].name
+      value: Green Distractor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[1].name
+      value: Red Distractor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[2].name
+      value: Target
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[0].model
+      value: 
+      objectReference: {fileID: 1871718307313364148, guid: e4d6c901ee4fa5445a64fe94efa2a3cd,
+        type: 3}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[1].model
+      value: 
+      objectReference: {fileID: 1871718307313364148, guid: 9f163d2d4b720ce44b3904bf9ffc2ea9,
+        type: 3}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[2].model
+      value: 
+      objectReference: {fileID: 1871718307313364148, guid: e4d6c901ee4fa5445a64fe94efa2a3cd,
+        type: 3}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[0].rotation
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[1].rotation
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[2].isTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[2].rotation
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[0].frequency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[1].frequency
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: allCues.Array.data[2].frequency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[0].name
+      value: Green-Distractor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[1].name
+      value: Red-Distractor
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[2].name
+      value: Green-Target
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[0].model
+      value: 
+      objectReference: {fileID: 1871718307313364148, guid: e4d6c901ee4fa5445a64fe94efa2a3cd,
+        type: 3}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[1].model
+      value: 
+      objectReference: {fileID: 1871718307313364148, guid: 9f163d2d4b720ce44b3904bf9ffc2ea9,
+        type: 3}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[2].model
+      value: 
+      objectReference: {fileID: 1871718307313364148, guid: e4d6c901ee4fa5445a64fe94efa2a3cd,
+        type: 3}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[0].rotation
+      value: -45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[1].rotation
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[2].isTarget
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[2].rotation
+      value: 45
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[0].frequency
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[1].frequency
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1607426159052283999, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: trial.allCues.Array.data[2].frequency
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6925727610581289009, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+        type: 3}
+      propertyPath: m_Name
+      value: Easy - Target Absent
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 97c6b417b33dfed44bc8e217e7d60c90, type: 3}
+--- !u!4 &1929456984 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6777251603427952217, guid: 97c6b417b33dfed44bc8e217e7d60c90,
+    type: 3}
+  m_PrefabInstance: {fileID: 1929456983}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1959223150 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2101651999073148174, guid: ee56946352dcb114caef7c0d973de14c,

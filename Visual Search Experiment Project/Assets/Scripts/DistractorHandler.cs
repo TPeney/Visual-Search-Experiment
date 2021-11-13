@@ -16,11 +16,13 @@ public class DistractorHandler : MonoBehaviour
         public GameObject model;
         public int frequency;
         public float rotation;
+        public bool isTarget;
     }
      
     // Start is called before the first frame update
     void Start()
     {
+
 
        // Create list of Children GameObjects - Each Distractor
         GameObject[] distractorLocations = new GameObject[transform.childCount];
@@ -57,7 +59,7 @@ public class DistractorHandler : MonoBehaviour
         {
             for (int rep = 0; rep < distractor.frequency; rep++)
             {
-                Instantiate(distractor.model, distractorLocations[spawnCount].transform); //set quaternion
+                Instantiate(distractor.model, distractorLocations[spawnCount].transform.position, distractorLocations[spawnCount].transform.rotation * Quaternion.Euler(0f, 0f, distractor.rotation)); //set quaternion
 
                 spawnCount++;
             }

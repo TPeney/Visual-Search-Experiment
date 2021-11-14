@@ -8,11 +8,19 @@ public class TrialHandler : MonoBehaviour
 {
     [Tooltip("How many times each trial is repeated")]
     public int nReps = 1;
-    
+
+    public locationHandler locationHandler;
+
+    [HideInInspector]
+    public TrialParameters.Trial[] trialList;
+
     // Start is called before the first frame update
     void Start()
     {
-        
+    }
+
+    public TrialParameters.Trial[] createTrialList()
+    {
         // Create list of initial trials
         GameObject[] tempTrialList = new GameObject[transform.childCount];
         int i = 0;
@@ -31,8 +39,8 @@ public class TrialHandler : MonoBehaviour
             }
         }
 
-        // Create list of All Trials - Children GameObjects
-        TrialParameters.Trial[] trialList = new TrialParameters.Trial[transform.childCount];
+        // Create list of All Trials - Trial Objects from Children GameObjects
+        trialList = new TrialParameters.Trial[transform.childCount];
         i = 0;
         foreach (Transform trial in transform)
         {
@@ -61,19 +69,30 @@ public class TrialHandler : MonoBehaviour
             trialList[t].orderShown = t + 1;
         }
 
-        foreach (TrialParameters.Trial trial in trialList)
-        {
-            //print(trial.name + " " + trial.trialN);
+        return trialList;
 
+    }
+
+    public void drawStimuli(TrialParameters.Trial trial)
+    {
+        GameObject[] cueLocations = locationHandler.createCueLocationArray();
+
+        // Draw each stimuli - location index based
+        int spawnCount = 0;
+        foreach (TrialParameters.VisualCue cue in trial.allCues)
+        {
+            for (int rep = 0; rep < cue.frequency; rep++)
+            {
+                Instantiate(
+                    cue.model,
+                    cueLocations[spawnCount].transform.position,
+                    cueLocations[spawnCount].transform.rotation * Quaternion.Euler(0f, 0f, cue.rotation)
+                    ); 
+
+                spawnCount++;
+            }
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-   
- }
+}
 

@@ -8,6 +8,7 @@ public class TrialHandler : MonoBehaviour
 {
     [Tooltip("How many times each trial is repeated")]
     public int nReps = 1;
+    public Transform spawnedObjectHolder;
 
     public locationHandler locationHandler;
 
@@ -83,14 +84,23 @@ public class TrialHandler : MonoBehaviour
         {
             for (int rep = 0; rep < cue.frequency; rep++)
             {
-                Instantiate(
+                GameObject temp = Instantiate(
                     cue.model,
                     cueLocations[spawnCount].transform.position,
                     cueLocations[spawnCount].transform.rotation * Quaternion.Euler(0f, 0f, cue.rotation)
-                    ); 
+                    );
+                temp.transform.SetParent(spawnedObjectHolder, true); // Sets parent to a holder parent GameObject 
 
                 spawnCount++;
             }
+        }
+    }
+
+    public void clearStimuli()
+    {
+        foreach (Transform child in spawnedObjectHolder.transform)
+        {
+            GameObject.Destroy(child.gameObject);
         }
     }
 

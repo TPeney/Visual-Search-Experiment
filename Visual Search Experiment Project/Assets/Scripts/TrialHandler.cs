@@ -11,6 +11,7 @@ public class TrialHandler : MonoBehaviour
     public Transform spawnedObjectHolder;
 
     public locationHandler locationHandler;
+    public GameObject fixationCross;
 
     [HideInInspector]
     public TrialParameters.Trial[] trialList;

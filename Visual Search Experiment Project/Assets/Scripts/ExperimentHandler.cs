@@ -7,6 +7,8 @@ public class ExperimentHandler : MonoBehaviour
     public TrialHandler TrialHandler;
     private TrialParameters.Trial[] trialList;
 
+    public float timeBetweenTrials;
+
     [Header("Response Keys")]
     public string targetPresentKey;
     public string targetAbsentKey;
@@ -70,6 +72,9 @@ public class ExperimentHandler : MonoBehaviour
     IEnumerator RunTrial(TrialParameters.Trial trial)
     {
         trialRunning = true;
+        TrialHandler.fixationCross.SetActive(true);
+        yield return new WaitForSeconds(2);
+        TrialHandler.fixationCross.SetActive(false);
         TrialHandler.drawStimuli(trial);
         // log start time
         awaitingResponse = true;
@@ -79,10 +84,32 @@ public class ExperimentHandler : MonoBehaviour
             yield return null;
         }
 
+        trial.response = response;
+
+        if (trial.targetShown && response == "Target Present")
+        {
+            trial.responseCorrect = true;
+        }
+        else if (!trial.targetShown && response == "Target Absent")
+        {
+            trial.responseCorrect = true;
+        }
+        else
+        {
+            trial.responseCorrect = false;
+        }
+
         TrialHandler.clearStimuli();
 
         trialNumber++;
+
         trialRunning = false;
+
+        if (trialNumber == trialList.Length)
+        {
+            print("Experiment done");
+            Sinbad.CsvUtil.SaveObjects(trialList, "./test.csv");
+        }
     }
 
 

@@ -2,25 +2,74 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using System;
 
 
 public class TrialHandler : MonoBehaviour
 {
     [Tooltip("How many times each trial is repeated")]
     public int nReps = 1;
+    public GameObject fixationCross;
+    public float timeBetweenTrials;
     public Transform spawnedObjectHolder;
-
-    public locationHandler locationHandler;
+    public LocationHandler locationHandler;
+    public bool saveResults;
 
     [HideInInspector]
     public TrialParameters.Trial[] trialList;
 
+
+    [Header("Response Keys")]
+    public string targetPresentKey;
+    public string targetAbsentKey;
+
+    private bool awaitingResponse = false;
+    private string response;
+    private bool trialRunning = false;
+    private int trialNumber = 0;
+
+    private DateTime trialStartTime;
+    private DateTime timeOfResponse;
+
     // Start is called before the first frame update
     void Start()
     {
+        trialList = CreateTrialList();
+
     }
 
-    public TrialParameters.Trial[] createTrialList()
+    void Update()
+    {
+        // If a trial isn't currently active - run a trial 
+        if (trialNumber < trialList.Length)
+        {
+            if (!trialRunning)
+            {
+                StartCoroutine(RunTrial(trialList[trialNumber]));
+            }
+        }
+        else
+        {
+            if (saveResults)
+            {
+                Csv.CsvUtil.SaveObjects(trialList,
+                    $"Data/" +
+                    $"Participant_{ExperimentHandler.PID}" +
+                    $"-{ExperimentHandler.session}" +
+                    $"-Visual_Search_Task.csv");
+            }
+            ExperimentHandler.ComponentComplete();
+        }
+
+
+        if (awaitingResponse)
+        {
+            GetInput();
+        }
+    }
+
+
+    public TrialParameters.Trial[] CreateTrialList()
     {
         // Create list of initial trials
         GameObject[] tempTrialList = new GameObject[transform.childCount];
@@ -59,7 +108,7 @@ public class TrialHandler : MonoBehaviour
         for (int t = 0; t < trialList.Length; t++)
         {
             TrialParameters.Trial tmp = trialList[t];
-            int r = Random.Range(t, trialList.Length);
+            int r = UnityEngine.Random.Range(t, trialList.Length);
             trialList[t] = trialList[r];
             trialList[r] = tmp;
         }
@@ -74,7 +123,7 @@ public class TrialHandler : MonoBehaviour
 
     }
 
-    public void drawStimuli(TrialParameters.Trial trial)
+    public void DrawStimuli(TrialParameters.Trial trial)
     {
         GameObject[] cueLocations = locationHandler.createCueLocationArray();
 
@@ -82,6 +131,10 @@ public class TrialHandler : MonoBehaviour
         int spawnCount = 0;
         foreach (TrialParameters.VisualCue cue in trial.allCues)
         {
+            if (cue.isTarget)
+            {
+                trial.targetShown = true;
+            }
             for (int rep = 0; rep < cue.frequency; rep++)
             {
                 GameObject temp = Instantiate(
@@ -96,7 +149,7 @@ public class TrialHandler : MonoBehaviour
         }
     }
 
-    public void clearStimuli()
+    public void ClearStimuli()
     {
         foreach (Transform child in spawnedObjectHolder.transform)
         {
@@ -104,5 +157,77 @@ public class TrialHandler : MonoBehaviour
         }
     }
 
+    public void GetInput()
+    {
+        bool respondedTargetPresent = Input.GetKeyDown(targetPresentKey);
+        bool respondedTargetAbsent = Input.GetKeyDown(targetAbsentKey);
+
+        if (respondedTargetPresent)
+        {
+            timeOfResponse = DateTime.Now;
+            print("Responded target present");
+            response = "Present";
+            awaitingResponse = false;
+        }
+
+        else if (respondedTargetAbsent)
+        {
+            timeOfResponse = DateTime.Now;
+            print("Responded target absent");
+            response = "Absent";
+            awaitingResponse = false;
+        }
+    }
+
+    private void SaveTrialData(TrialParameters.Trial trial)
+    {
+        TimeSpan interval = timeOfResponse - trialStartTime;
+        double reactionTime = interval.TotalMilliseconds;
+
+        trial.reactionTime = reactionTime;
+        print("RT = " + reactionTime.ToString());
+        trial.response = response;
+
+        if ((trial.targetShown && response == "Present") || (!trial.targetShown && response == "Absent"))
+        {
+            trial.trialPassed = true;
+
+        }
+        else
+        {
+            trial.trialPassed = false;
+        }
+    }
+
+    IEnumerator RunTrial(TrialParameters.Trial trial)
+    {
+        trialRunning = true;
+        if (fixationCross)
+        {
+            fixationCross.SetActive(true);
+        }
+
+        yield return new WaitForSecondsRealtime(timeBetweenTrials);
+
+        if (fixationCross)
+        {
+            fixationCross.SetActive(false);
+        }
+
+        trialStartTime = DateTime.Now;
+        DrawStimuli(trial);
+
+        awaitingResponse = true;
+
+        while (awaitingResponse)
+        {
+            yield return null;
+        }
+
+        ClearStimuli();
+        SaveTrialData(trial);
+        trialNumber++;
+        trialRunning = false;
+    }
 }
 

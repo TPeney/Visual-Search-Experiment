@@ -31,6 +31,18 @@ public class TrialParameters : MonoBehaviour
         [Header("Parameters of the objects to be shown")]
         public VisualCue[] allCues;
 
+        [HideInInspector]
+        public string response;
+
+        [HideInInspector]
+        public bool targetShown; // Set in TrialHandler.DrawStimuli() 
+
+        [HideInInspector]
+        public bool trialPassed;
+
+        [HideInInspector]
+        public double reactionTime;
+
     }
 
     void Start()

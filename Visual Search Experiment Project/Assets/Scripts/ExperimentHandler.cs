@@ -1,89 +1,68 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class ExperimentHandler : MonoBehaviour
 {
-    public TrialHandler TrialHandler;
-    private TrialParameters.Trial[] trialList;
+    public GameObject[] experimentComponents;
 
-    [Header("Response Keys")]
-    public string targetPresentKey;
-    public string targetAbsentKey;
+    [HideInInspector]
+    public static string PID;
+    [HideInInspector]
+    public static string session;
 
-    private bool awaitingResponse = false;
-    private string response;
-    private bool trialRunning = false;
-    private int trialNumber = 0;
+    private static int currentComponent = 0;
+    private static bool componentRunning = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        trialList = TrialHandler.createTrialList();
-        //for (int trialNumber = 0; trialNumber < trialList.Length; trialNumber++)
-        //{
-
-        //}
-
+        foreach (GameObject component in experimentComponents)
+        {
+            component.SetActive(false);
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        // If a trial isn't currently active - run a trial 
-        if (trialNumber < trialList.Length)
+        if (!componentRunning)
         {
-            if (!trialRunning)
+            if (currentComponent < experimentComponents.Length)
             {
-                StartCoroutine(RunTrial(trialList[trialNumber]));
+                StartCoroutine(ShowElement());
             }
-        }
-        
-        else
-        {
-            //print("Experiment end");
-        }
-
-
-        if (awaitingResponse)
-        {
-            bool respondedTargetPresent = Input.GetKeyDown(targetPresentKey);
-            bool respondedTargetAbsent = Input.GetKeyDown(targetAbsentKey);
-
-            if (respondedTargetPresent)
+            else
             {
-                print("Responded target present");
-                response = "Target Present";
-                awaitingResponse = false;
-
+                Application.Quit();
             }
 
-            else if (respondedTargetAbsent)
-            {
-                print("Responded target absent");
-                response = "Target Absent";
-                awaitingResponse = false;
-            }
         }
     }
 
-    IEnumerator RunTrial(TrialParameters.Trial trial)
+    public static void ComponentComplete()
     {
-        trialRunning = true;
-        TrialHandler.drawStimuli(trial);
-        // log start time
-        awaitingResponse = true;
+        componentRunning = false;
+    }
 
-        while (awaitingResponse)
+    IEnumerator ShowElement()
+    {
+        componentRunning=true;
+        experimentComponents[currentComponent].SetActive(true);
+
+        while (componentRunning)
         {
             yield return null;
         }
 
-        TrialHandler.clearStimuli();
+        experimentComponents[currentComponent].SetActive(false);
 
-        trialNumber++;
-        trialRunning = false;
+        currentComponent++;
     }
-
-
 }
+
+
+
+
+

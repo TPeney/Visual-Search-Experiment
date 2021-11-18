@@ -10,7 +10,22 @@
       "ProjectGuid": "a2fe74e1-b743-11d0-ae1a-00a0c90fffc3",
       "DisplayName": "Miscellaneous Files",
       "ColorIndex": -1
+    },
+    "03ac2ca7-af01-fe34-84b6-7ce92cf47147": {
+      "ProjectGuid": "03ac2ca7-af01-fe34-84b6-7ce92cf47147",
+      "DisplayName": "UnityEngine.UI",
+      "ColorIndex": 1
+    },
+    "3375abf2-bcb5-bc3f-d583-0fe77c66c37c": {
+      "ProjectGuid": "3375abf2-bcb5-bc3f-d583-0fe77c66c37c",
+      "DisplayName": "Unity.TextMeshPro",
+      "ColorIndex": 2
+    },
+    "46ad4547-8894-0697-f82e-def65aecefbc": {
+      "ProjectGuid": "46ad4547-8894-0697-f82e-def65aecefbc",
+      "DisplayName": "Unity.XR.Management",
+      "ColorIndex": 3
     }
   },
-  "NextColorIndex": 1
+  "NextColorIndex": 4
 }

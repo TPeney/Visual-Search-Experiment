@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
-public class locationHandler : MonoBehaviour
+public class LocationHandler : MonoBehaviour
 {
     [HideInInspector]
     public GameObject[] cueLocations;

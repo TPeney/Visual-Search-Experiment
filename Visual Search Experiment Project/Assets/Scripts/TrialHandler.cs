@@ -52,11 +52,7 @@ public class TrialHandler : MonoBehaviour
         {
             if (saveResults)
             {
-                Csv.CsvUtil.SaveObjects(trialList,
-                    $"Data/" +
-                    $"Participant_{ExperimentHandler.PID}" +
-                    $"-{ExperimentHandler.session}" +
-                    $"-Visual_Search_Task.csv");
+                ExperimentHandler.SaveResults(trialList);
             }
             ExperimentHandler.ComponentComplete();
         }

@@ -5,12 +5,16 @@ using UnityEngine;
 
 public class ExperimentHandler : MonoBehaviour
 {
+    public Condition[] conditions;
+
     public GameObject[] experimentComponents;
 
     [HideInInspector]
     public static string PID;
     [HideInInspector]
     public static string session;
+    [HideInInspector]
+    public static Condition condition;
 
     private static int currentComponent = 0;
     private static bool componentRunning = false;
@@ -37,13 +41,23 @@ public class ExperimentHandler : MonoBehaviour
             {
                 Application.Quit();
             }
-
         }
     }
 
     public static void ComponentComplete()
     {
         componentRunning = false;
+    }
+
+    public static void SaveResults(TrialParameters.Trial[] trialList)
+    {
+        string path = Application.dataPath +
+                    $"/Data/{condition.name}/" +
+                    $"Participant {PID}" +
+                    $"_Visual_Search_Task" +
+                    $"_({session}).csv";
+
+        Csv.CsvUtil.SaveObjects(trialList, path);
     }
 
     IEnumerator ShowElement()

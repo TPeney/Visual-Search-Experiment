@@ -28,15 +28,6 @@ public class TrialParameters : MonoBehaviour
         [HideInInspector]
         public int orderShown;
 
-        [HideInInspector]
-        public string response;
-
-        [HideInInspector]
-        public bool responseCorrect;
-
-        [HideInInspector]
-        public bool targetShown;
-
         [Header("Parameters of the objects to be shown")]
         public VisualCue[] allCues;
 
@@ -57,12 +48,5 @@ public class TrialParameters : MonoBehaviour
     void Start()
     {
         trial.name = gameObject.name;
-        foreach (VisualCue cue in trial.allCues)
-        {
-            if (cue.isTarget)
-            {
-                trial.targetShown = true;
-            }
-        }
     }
 }

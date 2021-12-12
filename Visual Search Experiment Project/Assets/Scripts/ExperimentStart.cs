@@ -39,8 +39,8 @@ public class ExperimentStart : MonoBehaviour
     {
         if (readyToStart)
         {
-            SceneManager.LoadScene(experimentHandler.condition + 1);
-            experimentHandler.experimentStarted = true;
+            SceneManager.LoadScene(ExperimentHandler.condition + 1);
+            ExperimentHandler.experimentStarted = true;
         }   
     }
 
@@ -55,7 +55,7 @@ public class ExperimentStart : MonoBehaviour
             CreateDirectories();
 
             // Disable VR Mode if needed
-            if (experimentHandler.condition == 0)
+            if (ExperimentHandler.condition == 0)
             {
                 XRGeneralSettings.Instance.Manager.DeinitializeLoader(); // Stop VR
             }
@@ -77,15 +77,15 @@ public class ExperimentStart : MonoBehaviour
          * 1 = VR Int
          * 2 = VR Full */
         int conditionIndex = conditionSelector.value;
-        experimentHandler.condition = conditionIndex;
-        experimentHandler.PID = PID;
-        experimentHandler.session = session;
+        ExperimentHandler.condition = conditionIndex;
+        ExperimentHandler.PID = PID;
+        ExperimentHandler.session = session;
     }
     private void CreateDirectories()
     {
         // Ensure Data Directories have been created 
         System.IO.Directory.CreateDirectory(Application.dataPath + "/Data"); // Overall
-        System.IO.Directory.CreateDirectory(Application.dataPath + $"/Data/{experimentHandler.condition}"); // Current Condition
+        System.IO.Directory.CreateDirectory(Application.dataPath + $"/Data/{ExperimentHandler.condition}"); // Current Condition
     }
 }
 

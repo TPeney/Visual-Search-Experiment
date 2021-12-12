@@ -251,6 +251,13 @@
         "com.unity.xr.legacyinputhelpers": "2.1.4"
       }
     },
+    "com.zigurous.importer.cc0textures": {
+      "version": "https://github.com/zigurous/unity-cc0textures-importer.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {},
+      "hash": "e9ee411cfd9275a43a20edae1448b441b3c9b9bd"
+    },
     "com.unity.modules.ai": {
       "version": "1.0.0",
       "depth": 0,

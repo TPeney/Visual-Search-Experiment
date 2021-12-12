@@ -9,11 +9,11 @@ public class ExperimentHandler : MonoBehaviour
     public List<GameObject> experimentComponents = new List<GameObject>();
 
     // Experiment-Wide Parameters 
-    [HideInInspector] public string PID;
-    [HideInInspector] public string session;
-    [HideInInspector] public int condition;
+    [HideInInspector] public static string PID;
+    [HideInInspector] public static string session;
+    [HideInInspector] public static int condition;
 
-    [HideInInspector] public bool experimentStarted;
+    [HideInInspector] public static bool experimentStarted;
     private int currentComponent = 0;
     public bool componentRunning = false;
     public bool awaitingResponse = false;
@@ -24,7 +24,7 @@ public class ExperimentHandler : MonoBehaviour
 
     private void Awake()
     {
-        ManageSingleton();
+        //ManageSingleton();
         SetUpComponentList();
     }
         

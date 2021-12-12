@@ -1,0 +1,88 @@
+{
+    "name": "Response Options",
+    "maps": [
+        {
+            "name": "ParticipantResponse",
+            "id": "6ed241ba-5db5-44a9-93f9-c2c907d6ea01",
+            "actions": [
+                {
+                    "name": "Respond Target Present",
+                    "type": "Button",
+                    "id": "3ab4ebfd-03e3-43ad-9cf2-9f2595afa0c0",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Respond Target Absent",
+                    "type": "Button",
+                    "id": "0627f786-5e09-4af0-817e-afcad18be6b6",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "Continue",
+                    "type": "Button",
+                    "id": "c32053ab-465b-4243-9570-54c71dc1d315",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "840d9d4c-1702-4379-9077-b27bb87215e8",
+                    "path": "<Keyboard>/z",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "Respond Target Present",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "30819aaf-5b67-438f-9d3b-fba22b8e2fa3",
+                    "path": "<Keyboard>/m",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "Respond Target Absent",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "917a1c2b-770b-40d6-ba47-0dcdd01dda38",
+                    "path": "<Keyboard>/space",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard & Mouse",
+                    "action": "Continue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "Keyboard & Mouse",
+            "bindingGroup": "Keyboard & Mouse",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": true,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}

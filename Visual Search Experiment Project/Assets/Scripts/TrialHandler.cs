@@ -7,138 +7,129 @@ using System;
 
 public class TrialHandler : MonoBehaviour
 {
-    [Tooltip("How many times each trial is repeated")]
+    [Header("Trial Handler Parameters")]
+    [Tooltip("How many times each trial is repeated.")]
     public int nReps = 1;
+
+    [Tooltip("Include a fixation cross before trial starts, or leave blank for none.")]
     public GameObject fixationCross;
+    public float fixationCrossDuration;
+
+    [Tooltip("Gap between trial presentation in seconds")]
     public float timeBetweenTrials;
-    public Transform spawnedObjectHolder;
-    public LocationHandler locationHandler;
     public bool saveResults;
 
-    [HideInInspector]
-    public TrialParameters.Trial[] trialList;
+    public Transform instantiatedStimuliContainer;
+    LocationHandler locationHandler;
 
+    [Tooltip("Add each trial as a TrialParameter SO")]
+    [SerializeField]
+    List<TrialParametersSO> trialList = new List<TrialParametersSO>();
+    private int currentTrialIndex = 0;
 
-    [Header("Response Keys")]
-    public string targetPresentKey;
-    public string targetAbsentKey;
-
-    private bool awaitingResponse = false;
-    private string response;
+    // Fields to handle response data for each trial
     private bool trialRunning = false;
-    private int trialNumber = 0;
 
-    private DateTime trialStartTime;
-    private DateTime timeOfResponse;
+    private DateTime currentTrialStartTime;
+    [HideInInspector] public bool awaitingResponse = false;
+    [HideInInspector] public string response;
+    [HideInInspector] public DateTime timeOfResponse;
 
-    // Start is called before the first frame update
+    ExperimentHandler experimentHandler;
+
+    private void Awake()
+    {
+        experimentHandler = FindObjectOfType<ExperimentHandler>();
+    }
+
     void Start()
     {
         trialList = CreateTrialList();
-
+        locationHandler = GetComponentInChildren<LocationHandler>();
     }
 
     void Update()
     {
         // If a trial isn't currently active - run a trial 
-        if (trialNumber < trialList.Length)
+        if (currentTrialIndex < trialList.Count)
         {
             if (!trialRunning)
             {
-                StartCoroutine(RunTrial(trialList[trialNumber]));
+                StartCoroutine(RunTrial(trialList[currentTrialIndex]));
             }
         }
         else
         {
             if (saveResults)
             {
-                ExperimentHandler.SaveResults(trialList);
+                experimentHandler.SaveResults(trialList);
             }
-            ExperimentHandler.ComponentComplete();
-        }
-
-
-        if (awaitingResponse)
-        {
-            GetInput();
+            experimentHandler.ComponentComplete();
         }
     }
 
-
-    public TrialParameters.Trial[] CreateTrialList()
+    public List<TrialParametersSO> CreateTrialList()
     {
-        // Create list of initial trials
-        GameObject[] tempTrialList = new GameObject[transform.childCount];
-        int i = 0;
-        foreach (Transform child in transform)
-        {
-            tempTrialList[i] = child.gameObject;
-            i++;
-        }
+        /* Creates a list of Trial SO's based on initial given trials 
+         * and desired amount of nReps. Sets the index and order shown
+         fields in each Trial SO. */
 
-        // Creates duplicates based on nReps
-        foreach (GameObject trial in tempTrialList)
-        {
-            for (int dup = 0; dup < nReps - 1; dup++)
-            {
-                Instantiate(trial, transform);
-            }
-        }
-
-        // Create list of All Trials - Trial Objects from Children GameObjects
-        trialList = new TrialParameters.Trial[transform.childCount];
-        i = 0;
-        foreach (Transform trial in transform)
-        {
-            trialList[i] = trial.gameObject.GetComponent<TrialParameters>().trial;
-            i += 1;
-        }
+        // Populate a list based on given trials and nReps
+        List <TrialParametersSO> tempTrialList = trialList;
+        List<TrialParametersSO> fullTrialList = Enumerable
+            .Range(0, nReps)
+            .SelectMany(e => trialList)
+            .ToList();
 
         // Assign pre-shuffle index; 
-        for (int t = 0; t < trialList.Length; t++)
+        for (int t = 0; t < fullTrialList.Count; t++)
         {
-            trialList[t].trialN = t + 1;
+            fullTrialList[t].trialN = t + 1;
         }
 
         // Randomise order of trial list
-        for (int t = 0; t < trialList.Length; t++)
+        for (int t = 0; t < fullTrialList.Count; t++)
         {
-            TrialParameters.Trial tmp = trialList[t];
-            int r = UnityEngine.Random.Range(t, trialList.Length);
-            trialList[t] = trialList[r];
-            trialList[r] = tmp;
+            TrialParametersSO tmp = fullTrialList[t];
+            int r = UnityEngine.Random.Range(t, fullTrialList.Count);
+            fullTrialList[t] = fullTrialList[r];
+            fullTrialList[r] = tmp;
         }
 
         // Assign post-shuffle index
-        for (int t = 0; t < trialList.Length; t++)
+        for (int t = 0; t < fullTrialList.Count; t++)
         {
-            trialList[t].orderShown = t + 1;
+            fullTrialList[t].orderShown = t + 1;
         }
 
-        return trialList;
-
+        return fullTrialList;
     }
 
-    public void DrawStimuli(TrialParameters.Trial trial)
+    public void DrawStimuli(TrialParametersSO trial)
     {
         GameObject[] cueLocations = locationHandler.createCueLocationArray();
 
         // Draw each stimuli - location index based
         int spawnCount = 0;
-        foreach (TrialParameters.VisualCue cue in trial.allCues)
+        foreach (VisualCue cue in trial.allVisualCues)
         {
             if (cue.isTarget)
             {
                 trial.targetShown = true;
             }
-            for (int rep = 0; rep < cue.frequency; rep++)
+            else
+            {
+                trial.targetShown = false;
+            }
+
+            for (int rep = 0; rep < cue.count; rep++)
             {
                 GameObject temp = Instantiate(
                     cue.model,
                     cueLocations[spawnCount].transform.position,
                     cueLocations[spawnCount].transform.rotation * Quaternion.Euler(0f, 0f, cue.rotation)
                     );
-                temp.transform.SetParent(spawnedObjectHolder, true); // Sets parent to a holder parent GameObject 
+                temp.transform.SetParent(instantiatedStimuliContainer, true); // Sets parent to a holder parent GameObject 
 
                 spawnCount++;
             }
@@ -147,41 +138,18 @@ public class TrialHandler : MonoBehaviour
 
     public void ClearStimuli()
     {
-        foreach (Transform child in spawnedObjectHolder.transform)
+        foreach (Transform child in instantiatedStimuliContainer.transform)
         {
             GameObject.Destroy(child.gameObject);
         }
     }
 
-    public void GetInput()
+    private void SaveTrialData(TrialParametersSO trial)
     {
-        bool respondedTargetPresent = Input.GetKeyDown(targetPresentKey);
-        bool respondedTargetAbsent = Input.GetKeyDown(targetAbsentKey);
-
-        if (respondedTargetPresent)
-        {
-            timeOfResponse = DateTime.Now;
-            print("Responded target present");
-            response = "Present";
-            awaitingResponse = false;
-        }
-
-        else if (respondedTargetAbsent)
-        {
-            timeOfResponse = DateTime.Now;
-            print("Responded target absent");
-            response = "Absent";
-            awaitingResponse = false;
-        }
-    }
-
-    private void SaveTrialData(TrialParameters.Trial trial)
-    {
-        TimeSpan interval = timeOfResponse - trialStartTime;
+        TimeSpan interval = timeOfResponse - currentTrialStartTime;
         double reactionTime = interval.TotalMilliseconds;
 
         trial.reactionTime = reactionTime;
-        print("RT = " + reactionTime.ToString());
         trial.response = response;
 
         if ((trial.targetShown && response == "Present") || (!trial.targetShown && response == "Absent"))
@@ -195,24 +163,21 @@ public class TrialHandler : MonoBehaviour
         }
     }
 
-    IEnumerator RunTrial(TrialParameters.Trial trial)
+    IEnumerator RunTrial(TrialParametersSO trial)
     {
         trialRunning = true;
-        if (fixationCross)
-        {
-            fixationCross.SetActive(true);
-        }
 
         yield return new WaitForSecondsRealtime(timeBetweenTrials);
 
         if (fixationCross)
         {
+            fixationCross.SetActive(true);
+            yield return new WaitForSecondsRealtime(fixationCrossDuration);
             fixationCross.SetActive(false);
         }
 
-        trialStartTime = DateTime.Now;
         DrawStimuli(trial);
-
+        currentTrialStartTime = DateTime.Now;
         awaitingResponse = true;
 
         while (awaitingResponse)
@@ -220,9 +185,10 @@ public class TrialHandler : MonoBehaviour
             yield return null;
         }
 
+        // End of Trial Cleanup 
         ClearStimuli();
         SaveTrialData(trial);
-        trialNumber++;
+        currentTrialIndex++;
         trialRunning = false;
     }
 }

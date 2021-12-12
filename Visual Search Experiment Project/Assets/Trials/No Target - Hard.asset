@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e848c1948de11441806f352b52f6319, type: 3}
+  m_Name: No Target - Hard
+  m_EditorClassIdentifier: 
+  allVisualCues:
+  - label: Green-Distractor
+    model: {fileID: 1871718307313364148, guid: e4d6c901ee4fa5445a64fe94efa2a3cd, type: 3}
+    count: 6
+    rotation: -45
+    isTarget: 0
+  - label: Red-Distractor
+    model: {fileID: 1871718307313364148, guid: 9f163d2d4b720ce44b3904bf9ffc2ea9, type: 3}
+    count: 6
+    rotation: 45
+    isTarget: 0
+  targetShown: 1
+  trialN: 0
+  orderShown: 0
+  reactionTime: 0
+  response: 
+  trialPassed: 0

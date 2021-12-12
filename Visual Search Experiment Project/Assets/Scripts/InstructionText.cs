@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class InstructionText : MonoBehaviour
 {
-    public string continueKey;
-  
-    // Update is called once per frame
-    void Update()
+    ExperimentHandler experimentHandler;
+
+    private void Start()
     {
-        bool continueKeyPressed = Input.GetKeyDown(continueKey);
-        if (continueKeyPressed)
-        {
-            ExperimentHandler.ComponentComplete();
-        }
+        experimentHandler = FindObjectOfType<ExperimentHandler>();
+        experimentHandler.awaitingResponse = true;
     }
 }

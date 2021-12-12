@@ -5,35 +5,60 @@ using UnityEngine;
 
 public class ExperimentHandler : MonoBehaviour
 {
-    public Condition[] conditions;
+    
+    public List<GameObject> experimentComponents = new List<GameObject>();
 
-    public GameObject[] experimentComponents;
+    // Experiment-Wide Parameters 
+    [HideInInspector] public string PID;
+    [HideInInspector] public string session;
+    [HideInInspector] public int condition;
 
-    [HideInInspector]
-    public static string PID;
-    [HideInInspector]
-    public static string session;
-    [HideInInspector]
-    public static Condition condition;
+    [HideInInspector] public bool experimentStarted;
+    private int currentComponent = 0;
+    public bool componentRunning = false;
+    public bool awaitingResponse = false;
+    bool activeComponent = false;
+    [HideInInspector] public TrialHandler currentTrialHandler;
 
-    private static int currentComponent = 0;
-    private static bool componentRunning = false;
+    static ExperimentHandler instance;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
+        ManageSingleton();
+        SetUpComponentList();
+    }
+        
+    private void ManageSingleton()
+    { // Create Singleton
+        if (instance != null)
+        {
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+    }
+    private void SetUpComponentList()
+    {
+        foreach (Transform component in gameObject.GetComponentInChildren<Transform>())
+        {
+            experimentComponents.Add(component.gameObject);
+        }
+
         foreach (GameObject component in experimentComponents)
         {
             component.SetActive(false);
         }
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (!componentRunning)
+        if (!activeComponent && experimentStarted)
         {
-            if (currentComponent < experimentComponents.Length)
+            if (currentComponent < experimentComponents.Count)
             {
                 StartCoroutine(ShowElement());
             }
@@ -44,15 +69,15 @@ public class ExperimentHandler : MonoBehaviour
         }
     }
 
-    public static void ComponentComplete()
+    public void ComponentComplete()
     {
         componentRunning = false;
     }
 
-    public static void SaveResults(TrialParameters.Trial[] trialList)
+    public void SaveResults(List<TrialParametersSO> trialList)
     {
         string path = Application.dataPath +
-                    $"/Data/{condition.name}/" +
+                    $"/Data/{condition}/" +
                     $"Participant {PID}" +
                     $"_Visual_Search_Task" +
                     $"_({session}).csv";
@@ -62,8 +87,14 @@ public class ExperimentHandler : MonoBehaviour
 
     IEnumerator ShowElement()
     {
-        componentRunning=true;
+        activeComponent = true;
+        componentRunning = true;
         experimentComponents[currentComponent].SetActive(true);
+
+        if (experimentComponents[currentComponent].GetComponent<TrialHandler>() != null)
+        {
+            currentTrialHandler = experimentComponents[currentComponent].GetComponent<TrialHandler>();
+        }
 
         while (componentRunning)
         {
@@ -71,8 +102,8 @@ public class ExperimentHandler : MonoBehaviour
         }
 
         experimentComponents[currentComponent].SetActive(false);
-
         currentComponent++;
+        activeComponent = false;
     }
 }
 

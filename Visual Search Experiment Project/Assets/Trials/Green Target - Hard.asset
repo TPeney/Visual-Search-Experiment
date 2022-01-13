@@ -14,23 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allVisualCues:
   - label: Green-Distractor
-    model: {fileID: 1871718307313364148, guid: e4d6c901ee4fa5445a64fe94efa2a3cd, type: 3}
+    model: {fileID: 998231017856309176, guid: 834c96d0aad2e6e4a85ee5ac2a10964a, type: 3}
     count: 5
     rotation: -45
     isTarget: 0
   - label: Red-Distractor
-    model: {fileID: 1871718307313364148, guid: 9f163d2d4b720ce44b3904bf9ffc2ea9, type: 3}
+    model: {fileID: 560302047009221053, guid: 67acd3db50bea2f4389a9275951de34b, type: 3}
     count: 6
     rotation: 45
     isTarget: 0
   - label: Green-Target
-    model: {fileID: 1871718307313364148, guid: e4d6c901ee4fa5445a64fe94efa2a3cd, type: 3}
+    model: {fileID: 998231017856309176, guid: 834c96d0aad2e6e4a85ee5ac2a10964a, type: 3}
     count: 1
     rotation: 45
     isTarget: 1
   targetShown: 1
-  trialN: 0
-  orderShown: 0
-  reactionTime: 0
-  response: 
-  trialPassed: 0
+  trialN: 2
+  orderShown: 4
+  reactionTime: 1579.2656000000002
+  response: Present
+  trialPassed: 1

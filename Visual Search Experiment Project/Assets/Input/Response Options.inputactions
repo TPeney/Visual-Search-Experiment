@@ -11,7 +11,8 @@
                     "id": "3ab4ebfd-03e3-43ad-9cf2-9f2595afa0c0",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Respond Target Absent",
@@ -19,7 +20,8 @@
                     "id": "0627f786-5e09-4af0-817e-afcad18be6b6",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Continue",
@@ -27,7 +29,8 @@
                     "id": "c32053ab-465b-4243-9570-54c71dc1d315",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -38,6 +41,17 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard & Mouse",
+                    "action": "Respond Target Present",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "aaad0cd6-2c7d-4545-97b8-b62cbcf3456a",
+                    "path": "<XRController>{LeftHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "VR",
                     "action": "Respond Target Present",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -55,11 +69,33 @@
                 },
                 {
                     "name": "",
+                    "id": "614c2448-5d23-4223-90d5-c4fa8731eb2a",
+                    "path": "<XRController>{RightHand}/primaryButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "VR",
+                    "action": "Respond Target Absent",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "917a1c2b-770b-40d6-ba47-0dcdd01dda38",
                     "path": "<Keyboard>/space",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard & Mouse",
+                    "action": "Continue",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "fb7c6dd9-d0aa-4682-a4c9-652b8687b8e8",
+                    "path": "*/{TriggerButton}",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "VR",
                     "action": "Continue",
                     "isComposite": false,
                     "isPartOfComposite": false
@@ -79,6 +115,32 @@
                 },
                 {
                     "devicePath": "<Mouse>",
+                    "isOptional": true,
+                    "isOR": false
+                }
+            ]
+        },
+        {
+            "name": "VR",
+            "bindingGroup": "VR",
+            "devices": [
+                {
+                    "devicePath": "<ValveIndexController>{LeftHand}",
+                    "isOptional": true,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<ValveIndexController>{RightHand}",
+                    "isOptional": true,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<OculusTouchController>{LeftHand}",
+                    "isOptional": true,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<OculusTouchController>{RightHand}",
                     "isOptional": true,
                     "isOR": false
                 }

@@ -35,6 +35,8 @@ public class TrialHandler : MonoBehaviour
     [HideInInspector] public string response;
     [HideInInspector] public DateTime timeOfResponse;
 
+    [HideInInspector] private Vector3 localScale;
+
     ExperimentHandler experimentHandler;
 
     private void Awake()
@@ -46,6 +48,7 @@ public class TrialHandler : MonoBehaviour
     {
         trialList = CreateTrialList();
         locationHandler = GetComponentInChildren<LocationHandler>();
+        localScale = experimentHandler.gameObject.transform.localScale;
     }
 
     void Update()
@@ -127,9 +130,9 @@ public class TrialHandler : MonoBehaviour
                 GameObject temp = Instantiate(
                     cue.model,
                     cueLocations[spawnCount].transform.position,
-                    cueLocations[spawnCount].transform.rotation * Quaternion.Euler(0f, 0f, cue.rotation)
+                    cueLocations[spawnCount].transform.rotation * Quaternion.Euler(0f, 0f, cue.rotation),
+                    instantiatedStimuliContainer
                     );
-                temp.transform.SetParent(instantiatedStimuliContainer, true); // Sets parent to a holder parent GameObject 
 
                 spawnCount++;
             }

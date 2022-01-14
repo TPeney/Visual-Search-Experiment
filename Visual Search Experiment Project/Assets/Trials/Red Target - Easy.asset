@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e848c1948de11441806f352b52f6319, type: 3}
+  m_Name: Red Target - Easy
+  m_EditorClassIdentifier: 
+  allVisualCues:
+  - label: Green-Distractor
+    model: {fileID: 998231017856309176, guid: 834c96d0aad2e6e4a85ee5ac2a10964a, type: 3}
+    count: 3
+    rotation: -45
+    isTarget: 0
+  - label: Red-Distractor
+    model: {fileID: 560302047009221053, guid: 67acd3db50bea2f4389a9275951de34b, type: 3}
+    count: 2
+    rotation: 45
+    isTarget: 0
+  - label: Red-Target
+    model: {fileID: 560302047009221053, guid: 67acd3db50bea2f4389a9275951de34b, type: 3}
+    count: 1
+    rotation: -45
+    isTarget: 1
+  targetShown: 1
+  trialN: 2
+  orderShown: 4
+  reactionTime: 1343.9909
+  response: Absent
+  trialPassed: 0

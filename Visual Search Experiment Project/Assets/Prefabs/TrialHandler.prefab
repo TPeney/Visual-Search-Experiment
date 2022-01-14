@@ -46,7 +46,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4425168957569053759
 Transform:
   m_ObjectHideFlags: 0
@@ -76,16 +76,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f86126f57a2bf9f4eb64d03759b28b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nReps: 1
+  nReps: 15
   fixationCross: {fileID: 4425168958060053284}
   fixationCrossDuration: 1
   timeBetweenTrials: 2
-  saveResults: 0
+  saveResults: 1
   instantiatedStimuliContainer: {fileID: 4425168956973066982}
   trialList:
   - {fileID: 11400000, guid: cefb0dafeec5a6340834089730c03310, type: 2}
   - {fileID: 11400000, guid: c416ecdd75050cf4f8d3330358f5fda7, type: 2}
+  - {fileID: 11400000, guid: 8bfd6465d4c80e2499a94d74dc6429a2, type: 2}
+  - {fileID: 11400000, guid: 1f7bf7cfa97f15e419bcbf7c65f0068e, type: 2}
   - {fileID: 11400000, guid: b705ec688f12bd1498cbeddbf115eb84, type: 2}
+  - {fileID: 11400000, guid: b705ec688f12bd1498cbeddbf115eb84, type: 2}
+  - {fileID: 11400000, guid: 229b15526c40245418fed49ac175fe4f, type: 2}
   - {fileID: 11400000, guid: 229b15526c40245418fed49ac175fe4f, type: 2}
   awaitingResponse: 0
   response: 

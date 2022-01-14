@@ -1209,17 +1209,7 @@ PrefabInstance:
     - target: {fileID: 4425168957569053753, guid: 4000657a7399d374493ea88e41320eb7,
         type: 3}
       propertyPath: m_Name
-      value: TrialHandler
-      objectReference: {fileID: 0}
-    - target: {fileID: 4425168957569053753, guid: 4000657a7399d374493ea88e41320eb7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
-        type: 3}
-      propertyPath: saveResults
-      value: 1
+      value: MainTrials
       objectReference: {fileID: 0}
     - target: {fileID: 4425168957569053759, guid: 4000657a7399d374493ea88e41320eb7,
         type: 3}

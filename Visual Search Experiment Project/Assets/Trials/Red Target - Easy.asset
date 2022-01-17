@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e848c1948de11441806f352b52f6319, type: 3}
   m_Name: Red Target - Easy
   m_EditorClassIdentifier: 
+  trialName: Red Target - Easy
+  trialIndex: 1
   allVisualCues:
   - label: Green-Distractor
     model: {fileID: 998231017856309176, guid: 834c96d0aad2e6e4a85ee5ac2a10964a, type: 3}

@@ -936,7 +936,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -6.08}
+  m_AnchoredPosition: {x: -2.07, y: -6.08}
   m_SizeDelta: {x: 33.3847, y: 6.2994}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!23 &3680289822669921864
@@ -1004,11 +1004,11 @@ MonoBehaviour:
 
 
     If you think the
-    target is present press ''z'' otherwise, press ''m''.
+    target is present press ''left button'' otherwise, press ''right button''.
 
 
-    When you are ready
-    to begin, please press ''space''.'
+    When
+    you are ready to begin, please press ''trigger''.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1071,7 +1071,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -3.5572567, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1211,6 +1211,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainTrials
       objectReference: {fileID: 0}
+    - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
+        type: 3}
+      propertyPath: trialList.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8bfd6465d4c80e2499a94d74dc6429a2,
+        type: 2}
+    - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
+        type: 3}
+      propertyPath: trialList.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: c416ecdd75050cf4f8d3330358f5fda7,
+        type: 2}
     - target: {fileID: 4425168957569053759, guid: 4000657a7399d374493ea88e41320eb7,
         type: 3}
       propertyPath: m_RootOrder
@@ -1443,32 +1455,66 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
         type: 3}
+      propertyPath: nReps
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
+        type: 3}
+      propertyPath: saveResults
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
+        type: 3}
       propertyPath: trialList.Array.size
-      value: 4
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
         type: 3}
       propertyPath: trialList.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: b705ec688f12bd1498cbeddbf115eb84,
+      objectReference: {fileID: 11400000, guid: cefb0dafeec5a6340834089730c03310,
         type: 2}
     - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
         type: 3}
       propertyPath: trialList.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: cefb0dafeec5a6340834089730c03310,
+      objectReference: {fileID: 11400000, guid: 8bfd6465d4c80e2499a94d74dc6429a2,
         type: 2}
     - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
         type: 3}
       propertyPath: trialList.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 229b15526c40245418fed49ac175fe4f,
+      objectReference: {fileID: 11400000, guid: c416ecdd75050cf4f8d3330358f5fda7,
         type: 2}
     - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
         type: 3}
       propertyPath: trialList.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: c416ecdd75050cf4f8d3330358f5fda7,
+      objectReference: {fileID: 11400000, guid: 1f7bf7cfa97f15e419bcbf7c65f0068e,
+        type: 2}
+    - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
+        type: 3}
+      propertyPath: trialList.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: b705ec688f12bd1498cbeddbf115eb84,
+        type: 2}
+    - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
+        type: 3}
+      propertyPath: trialList.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: b705ec688f12bd1498cbeddbf115eb84,
+        type: 2}
+    - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
+        type: 3}
+      propertyPath: trialList.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 229b15526c40245418fed49ac175fe4f,
+        type: 2}
+    - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
+        type: 3}
+      propertyPath: trialList.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 229b15526c40245418fed49ac175fe4f,
         type: 2}
     - target: {fileID: 4425168957569053759, guid: 4000657a7399d374493ea88e41320eb7,
         type: 3}

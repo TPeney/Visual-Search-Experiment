@@ -17,12 +17,12 @@ MonoBehaviour:
   allVisualCues:
   - label: Green-Distractor
     model: {fileID: 998231017856309176, guid: 834c96d0aad2e6e4a85ee5ac2a10964a, type: 3}
-    count: 3
+    count: 2
     rotation: -45
     isTarget: 0
   - label: Red-Distractor
     model: {fileID: 560302047009221053, guid: 67acd3db50bea2f4389a9275951de34b, type: 3}
-    count: 3
+    count: 2
     rotation: 45
     isTarget: 0
   targetShown: 0

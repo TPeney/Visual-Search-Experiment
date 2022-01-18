@@ -16,6 +16,7 @@ public class TrialParametersSO : ScriptableObject
     // Order Info 
     [HideInInspector] public int trialN;
     [HideInInspector] public int orderShown;
+    [HideInInspector] public int arraySize = 0;
 
     // Results
     [HideInInspector] public double reactionTime;
@@ -25,5 +26,9 @@ public class TrialParametersSO : ScriptableObject
     private void Awake()
     {
         trialName = this.name;
+        foreach (var cue in allVisualCues)
+        {
+            arraySize += cue.count;
+        }
     }
 }

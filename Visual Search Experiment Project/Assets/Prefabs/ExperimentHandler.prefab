@@ -76,7 +76,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &5832192522037390251
 MonoBehaviour:
@@ -408,7 +408,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &9216685704320688979
 MonoBehaviour:
@@ -580,7 +580,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &2394041607651060120
 MonoBehaviour:
@@ -808,7 +808,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &2854528422002355834
 MonoBehaviour:
@@ -978,7 +978,7 @@ MeshRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!114 &8112624516554888185
 MonoBehaviour:
@@ -1213,15 +1213,43 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
         type: 3}
+      propertyPath: nReps
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
+        type: 3}
+      propertyPath: trialList.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
+        type: 3}
       propertyPath: trialList.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 8bfd6465d4c80e2499a94d74dc6429a2,
+      objectReference: {fileID: 11400000, guid: c416ecdd75050cf4f8d3330358f5fda7,
         type: 2}
     - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
         type: 3}
       propertyPath: trialList.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: c416ecdd75050cf4f8d3330358f5fda7,
+      objectReference: {fileID: 11400000, guid: b705ec688f12bd1498cbeddbf115eb84,
+        type: 2}
+    - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
+        type: 3}
+      propertyPath: trialList.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 229b15526c40245418fed49ac175fe4f,
+        type: 2}
+    - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
+        type: 3}
+      propertyPath: trialList.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 229b15526c40245418fed49ac175fe4f,
+        type: 2}
+    - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
+        type: 3}
+      propertyPath: trialList.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 229b15526c40245418fed49ac175fe4f,
         type: 2}
     - target: {fileID: 4425168957569053759, guid: 4000657a7399d374493ea88e41320eb7,
         type: 3}
@@ -1466,7 +1494,7 @@ PrefabInstance:
     - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
         type: 3}
       propertyPath: trialList.Array.size
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
         type: 3}
@@ -1478,31 +1506,31 @@ PrefabInstance:
         type: 3}
       propertyPath: trialList.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 8bfd6465d4c80e2499a94d74dc6429a2,
+      objectReference: {fileID: 11400000, guid: c416ecdd75050cf4f8d3330358f5fda7,
         type: 2}
     - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
         type: 3}
       propertyPath: trialList.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: c416ecdd75050cf4f8d3330358f5fda7,
+      objectReference: {fileID: 11400000, guid: b705ec688f12bd1498cbeddbf115eb84,
         type: 2}
     - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
         type: 3}
       propertyPath: trialList.Array.data[3]
       value: 
-      objectReference: {fileID: 11400000, guid: 1f7bf7cfa97f15e419bcbf7c65f0068e,
+      objectReference: {fileID: 11400000, guid: 229b15526c40245418fed49ac175fe4f,
         type: 2}
     - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
         type: 3}
       propertyPath: trialList.Array.data[4]
       value: 
-      objectReference: {fileID: 11400000, guid: b705ec688f12bd1498cbeddbf115eb84,
+      objectReference: {fileID: 11400000, guid: 229b15526c40245418fed49ac175fe4f,
         type: 2}
     - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
         type: 3}
       propertyPath: trialList.Array.data[5]
       value: 
-      objectReference: {fileID: 11400000, guid: b705ec688f12bd1498cbeddbf115eb84,
+      objectReference: {fileID: 11400000, guid: 229b15526c40245418fed49ac175fe4f,
         type: 2}
     - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
         type: 3}

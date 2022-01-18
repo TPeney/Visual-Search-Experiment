@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.XR;
 using UnityEngine.XR.Management;
 using UnityEngine.SceneManagement;
 using TMPro;
@@ -23,6 +24,7 @@ public class ExperimentStart : MonoBehaviour
     private void Awake()
     {
         experimentHandler = FindObjectOfType<ExperimentHandler>();
+        XRGeneralSettings.Instance.Manager.StopSubsystems();
     }
 
     void Start()
@@ -54,12 +56,12 @@ public class ExperimentStart : MonoBehaviour
             SetExperimentParameters();
             CreateDirectories();
 
-            // Disable VR Mode if needed
+            XRGeneralSettings.Instance.Manager.StartSubsystems(); // Initialize VR 
+            // Disable VR Tracking in 2D
             if (ExperimentHandler.condition == 0)
             {
-                XRGeneralSettings.Instance.Manager.DeinitializeLoader(); // Stop VR
             }
-
+            XRGeneralSettings.Instance.Manager.StartSubsystems(); // Initialize VR 
             // At next frame (Update) - Tell ExperimentHandler to move on
             readyToStart = true;
         }

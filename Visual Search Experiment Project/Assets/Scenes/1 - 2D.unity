@@ -1886,5 +1886,53 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6451202282592520172, guid: 05174eb0c75763f478bd241ad924eec5,
+        type: 3}
+      propertyPath: trialList.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5f214a2a67a3d424e9ab27790c7068ed,
+        type: 2}
+    - target: {fileID: 6451202282592520172, guid: 05174eb0c75763f478bd241ad924eec5,
+        type: 3}
+      propertyPath: trialList.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2cd7f054ca504024a848e2c8f51307df,
+        type: 2}
+    - target: {fileID: 6451202282592520172, guid: 05174eb0c75763f478bd241ad924eec5,
+        type: 3}
+      propertyPath: trialList.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 270e477886ea17c478a2aee066f34196,
+        type: 2}
+    - target: {fileID: 6451202282592520172, guid: 05174eb0c75763f478bd241ad924eec5,
+        type: 3}
+      propertyPath: trialList.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7ae0066e2995bbd4aa3f39439dfec4e9,
+        type: 2}
+    - target: {fileID: 7781162293300129536, guid: 05174eb0c75763f478bd241ad924eec5,
+        type: 3}
+      propertyPath: trialList.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 5f214a2a67a3d424e9ab27790c7068ed,
+        type: 2}
+    - target: {fileID: 7781162293300129536, guid: 05174eb0c75763f478bd241ad924eec5,
+        type: 3}
+      propertyPath: trialList.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 2cd7f054ca504024a848e2c8f51307df,
+        type: 2}
+    - target: {fileID: 7781162293300129536, guid: 05174eb0c75763f478bd241ad924eec5,
+        type: 3}
+      propertyPath: trialList.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 270e477886ea17c478a2aee066f34196,
+        type: 2}
+    - target: {fileID: 7781162293300129536, guid: 05174eb0c75763f478bd241ad924eec5,
+        type: 3}
+      propertyPath: trialList.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 7ae0066e2995bbd4aa3f39439dfec4e9,
+        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 05174eb0c75763f478bd241ad924eec5, type: 3}

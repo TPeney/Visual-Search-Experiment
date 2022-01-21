@@ -34,8 +34,8 @@ public class TrialHandler : MonoBehaviour
     [Tooltip("How many total breaks? Will be inserted evenly across all trials.")]
     [SerializeField] int numBreaks;
 
-    /*[HideInInspector]*/ public bool takingBreak = false;
-    /*[HideInInspector]*/ List<int> breakIndices = new List<int>();
+    [HideInInspector] public bool takingBreak = false;
+    [HideInInspector] List<int> breakIndices = new List<int>();
 
 
     // Fields to handle response data for each trial
@@ -171,12 +171,25 @@ public class TrialHandler : MonoBehaviour
 
             for (int rep = 0; rep < cue.count; rep++)
             {
+                Vector3 rotation;
+
+                // If custom rotation on the z-axis is given, use that, otherwise use prefab default
+                if (cue.zRotation != 0)
+                {
+                    rotation = new Vector3(0f, 0f, cue.zRotation);
+                }
+                else
+                {
+                    rotation = cue.model.transform.rotation.eulerAngles;
+                }
+
                 GameObject temp = Instantiate(
-                    cue.model,
-                    cueLocations[spawnCount].transform.position,
-                    cueLocations[spawnCount].transform.rotation * Quaternion.Euler(0f, 0f, cue.rotation),
-                    instantiatedStimuliContainer
-                    );
+                  cue.model,
+                  cueLocations[spawnCount].transform.position,
+                  cueLocations[spawnCount].transform.rotation * Quaternion.Euler(rotation),
+                  instantiatedStimuliContainer
+                  );
+
 
                 spawnCount++;
             }

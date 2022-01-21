@@ -200,7 +200,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4466675314283419810
 Transform:
   m_ObjectHideFlags: 0
@@ -1211,46 +1211,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: MainTrials
       objectReference: {fileID: 0}
-    - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
+    - target: {fileID: 4425168957569053753, guid: 4000657a7399d374493ea88e41320eb7,
         type: 3}
-      propertyPath: nReps
-      value: 30
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
         type: 3}
-      propertyPath: trialList.Array.size
+      propertyPath: numBreaks
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
         type: 3}
-      propertyPath: trialList.Array.data[1]
+      propertyPath: breakScreen
       value: 
-      objectReference: {fileID: 11400000, guid: c416ecdd75050cf4f8d3330358f5fda7,
-        type: 2}
-    - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
-        type: 3}
-      propertyPath: trialList.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: b705ec688f12bd1498cbeddbf115eb84,
-        type: 2}
-    - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
-        type: 3}
-      propertyPath: trialList.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: 229b15526c40245418fed49ac175fe4f,
-        type: 2}
-    - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
-        type: 3}
-      propertyPath: trialList.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: 229b15526c40245418fed49ac175fe4f,
-        type: 2}
-    - target: {fileID: 4425168957569053758, guid: 4000657a7399d374493ea88e41320eb7,
-        type: 3}
-      propertyPath: trialList.Array.data[5]
-      value: 
-      objectReference: {fileID: 11400000, guid: 229b15526c40245418fed49ac175fe4f,
-        type: 2}
+      objectReference: {fileID: 4675272201114992200}
     - target: {fileID: 4425168957569053759, guid: 4000657a7399d374493ea88e41320eb7,
         type: 3}
       propertyPath: m_RootOrder
@@ -1311,6 +1286,12 @@ PrefabInstance:
 --- !u!4 &7781162293300129537 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4425168957569053759, guid: 4000657a7399d374493ea88e41320eb7,
+    type: 3}
+  m_PrefabInstance: {fileID: 6239005394269395774}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4675272201114992200 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1618060082096629110, guid: 4000657a7399d374493ea88e41320eb7,
     type: 3}
   m_PrefabInstance: {fileID: 6239005394269395774}
   m_PrefabAsset: {fileID: 0}

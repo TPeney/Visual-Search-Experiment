@@ -1903,6 +1903,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2430195494772199531, guid: 05174eb0c75763f478bd241ad924eec5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2702019697401414056, guid: 05174eb0c75763f478bd241ad924eec5,
         type: 3}
       propertyPath: experimentComponents.Array.data[0]
@@ -2008,6 +2013,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4675272201114992200, guid: 05174eb0c75763f478bd241ad924eec5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7781162293300129536, guid: 05174eb0c75763f478bd241ad924eec5,
+        type: 3}
+      propertyPath: numBreaks
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7781162293300129536, guid: 05174eb0c75763f478bd241ad924eec5,
+        type: 3}
+      propertyPath: breakScreen
+      value: 
+      objectReference: {fileID: 2702019696459210898}
+    - target: {fileID: 7781162293300129543, guid: 05174eb0c75763f478bd241ad924eec5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3124770532903853617, guid: 05174eb0c75763f478bd241ad924eec5, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 05174eb0c75763f478bd241ad924eec5, type: 3}
+--- !u!1 &2702019696459210898 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4675272201114992200, guid: 05174eb0c75763f478bd241ad924eec5,
+    type: 3}
+  m_PrefabInstance: {fileID: 2702019696459210897}
+  m_PrefabAsset: {fileID: 0}

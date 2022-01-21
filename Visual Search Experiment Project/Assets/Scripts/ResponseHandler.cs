@@ -44,10 +44,15 @@ public class ResponseHandler : MonoBehaviour
 
     void OnContinue(InputValue value)
     {
+        Debug.Log("Continue pressed");
         if (experimentHandler.awaitingResponse)
         {
             experimentHandler.awaitingResponse = false;
             experimentHandler.ComponentComplete();
+        }
+        else if (trialHandler.takingBreak)
+        {
+            trialHandler.takingBreak = false;
         }
     }
 }

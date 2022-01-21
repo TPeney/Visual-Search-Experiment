@@ -27,6 +27,17 @@ public class TrialHandler : MonoBehaviour
     List<TrialParametersSO> trialList = new List<TrialParametersSO>();
     private int currentTrialIndex = 0;
 
+    [Header("Break Adjustment")]
+    [Tooltip("Leave blank for no breaks.")]
+    [SerializeField] GameObject breakScreen;
+
+    [Tooltip("How many total breaks? Will be inserted evenly across all trials.")]
+    [SerializeField] int numBreaks;
+
+    /*[HideInInspector]*/ public bool takingBreak = false;
+    /*[HideInInspector]*/ List<int> breakIndices = new List<int>();
+
+
     // Fields to handle response data for each trial
     private bool trialRunning = false;
 
@@ -49,6 +60,12 @@ public class TrialHandler : MonoBehaviour
         trialList = CreateTrialList();
         locationHandler = GetComponentInChildren<LocationHandler>();
         localScale = experimentHandler.gameObject.transform.localScale;
+
+        if (breakScreen != null)
+        {
+            breakScreen.SetActive(false); // Ensure break screen is initially turned off
+            DetermineBreakIndices();
+        }
     }
 
     void Update()
@@ -117,6 +134,24 @@ public class TrialHandler : MonoBehaviour
         return fullTrialList;
     }
 
+    private void DetermineBreakIndices()
+    {
+        // Calculate the interval for breaks to occur at given the total trial count and desired number of breaks.
+        int spacer = (int)Math.Ceiling((double) trialList.Count / (numBreaks + 1)); 
+
+        // Populate list with indeces at which breaks are to occur.
+        for (int i = 1; spacer * i < trialList.Count; i++)
+        {
+            breakIndices.Add(i * spacer);
+        }
+    }
+
+    private void RunBreak()
+    {
+        takingBreak = true;
+        breakScreen.SetActive(true); // Set to false by response handler
+    }
+
     public void DrawStimuli(TrialParametersSO trial)
     {
         GameObject[] cueLocations = locationHandler.createCueLocationArray();
@@ -179,6 +214,21 @@ public class TrialHandler : MonoBehaviour
     {
         trialRunning = true;
 
+        // Check for break screen
+        if (breakScreen != null)
+        {
+            if (breakIndices.Contains(currentTrialIndex))
+            {
+                RunBreak();
+                while (takingBreak) // Set to false by response handler
+                {
+                    yield return null;
+                }
+                breakScreen.SetActive(false);
+            }
+        }
+
+        // Run Main Trial
         yield return new WaitForSecondsRealtime(timeBetweenTrials);
 
         if (fixationCross)

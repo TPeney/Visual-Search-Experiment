@@ -8,6 +8,6 @@ public class VisualCue
     public string label;
     public GameObject model;
     public int count;
-    public float rotation;
+    public float zRotation;
     public bool isTarget = false;
 }

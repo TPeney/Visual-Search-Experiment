@@ -98,7 +98,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Please take this oppertunity to have a break. \n\nWhen you are ready to
+  m_text: "Please take this opportunity to have a break. \n\nWhen you are ready to
     continue, press the trigger button."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 1480007993}
   - component: {fileID: 1480007994}
   m_Layer: 0
-  m_Name: ExperimentHandler - Shapes
+  m_Name: ExperimentHandler
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -430,9 +430,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Multiple shapes will be presented on the screen.\n\nYour task is to identify
-    if the 'target' is present. \n\nThe target is a unique shape - it has the colour
-    of one shape, but the orientation of the other."
+  m_text: "Multiple characters will be presented on the screen.\n\nYour task is to
+    identify if the 'target' is present. \n\nThe target is a unique character - it
+    is a mirrored version of the others. "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

@@ -15,7 +15,7 @@ public class TrialParametersSO : ScriptableObject
     // Order Info 
     [HideInInspector] public int trialN;
     [HideInInspector] public int orderShown;
-    [HideInInspector] public int arraySize = 0;
+    public int arraySize = 0;
 
     // Results
     [HideInInspector] public bool targetShown = false;
@@ -30,5 +30,7 @@ public class TrialParametersSO : ScriptableObject
         {
             arraySize += cue.count;
         }
+        Debug.Log(this.arraySize);
+
     }
 }

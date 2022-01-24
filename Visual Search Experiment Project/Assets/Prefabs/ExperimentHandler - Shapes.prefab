@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 1480007993}
   - component: {fileID: 1480007994}
   m_Layer: 0
-  m_Name: ExperimentHandler
+  m_Name: ExperimentHandler - Shapes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

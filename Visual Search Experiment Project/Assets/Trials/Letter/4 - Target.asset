@@ -12,23 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e848c1948de11441806f352b52f6319, type: 3}
   m_Name: 4 - Target
   m_EditorClassIdentifier: 
+  condition: -1
   trialName: 4 - Target
-  trialIndex: 0
   allVisualCues:
   - label: Letter - Cue
     model: {fileID: 3722700683900385441, guid: f9e192eeded96174c8a2be3bcec63509, type: 3}
     count: 3
-    rotation: 0
+    zRotation: 0
     isTarget: 0
   - label: Letter - Cue
     model: {fileID: 7459135265198830166, guid: ce56a26da1fa650449f08de1f462def4, type: 3}
     count: 1
-    rotation: 0
+    zRotation: 0
     isTarget: 1
-  targetShown: 0
   trialN: 0
   orderShown: 0
-  arraySize: 12
-  reactionTime: 0
+  arraySize: 0
+  targetShown: 0
   response: 
   trialPassed: 0
+  reactionTime: 0

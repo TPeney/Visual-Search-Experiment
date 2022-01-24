@@ -97,10 +97,7 @@ public class TrialHandler : MonoBehaviour
         // Populate a list based on given trials and nReps
         List <TrialParametersSO> tempTrialList = trialList;
         List<TrialParametersSO> fullTrialList = new List<TrialParametersSO>();
-        //List<TrialParametersSO> fullTrialList = Enumerable
-        //    .Range(0, nReps)
-        //    .SelectMany(e => trialList)
-        //    .ToList();
+        
         for (int i = 0; i < nReps; i++)
         {
             foreach (TrialParametersSO trial in tempTrialList.ToList())
@@ -110,10 +107,11 @@ public class TrialHandler : MonoBehaviour
             }
         }
 
-        // Assign pre-shuffle index;    
+        // Assign pre-shuffle index & condition;    
         for (int t = 0; t < fullTrialList.Count; t++)
         {
             fullTrialList[t].trialN = t + 1;
+            fullTrialList[t].condition = ExperimentHandler.condition;
         }
 
         // Randomise order of trial list

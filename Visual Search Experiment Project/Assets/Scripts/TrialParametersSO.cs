@@ -5,13 +5,12 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Trial", fileName = "New Trial")]
 public class TrialParametersSO : ScriptableObject
 {
+    [HideInInspector] public int condition = -1;
+
     // Trial Stimuli
     public string trialName;
-    public int trialIndex;
-    [SerializeField]
-    public List<VisualCue> allVisualCues = new List<VisualCue>();
+    [SerializeField] public List<VisualCue> allVisualCues = new List<VisualCue>();
 
-    [HideInInspector] public bool targetShown = false;
 
     // Order Info 
     [HideInInspector] public int trialN;
@@ -19,9 +18,10 @@ public class TrialParametersSO : ScriptableObject
     [HideInInspector] public int arraySize = 0;
 
     // Results
-    [HideInInspector] public double reactionTime;
+    [HideInInspector] public bool targetShown = false;
     [HideInInspector] public string response;
     [HideInInspector] public bool trialPassed;
+    [HideInInspector] public double reactionTime;
 
     private void Awake()
     {

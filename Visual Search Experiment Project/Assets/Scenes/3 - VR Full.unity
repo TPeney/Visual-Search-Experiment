@@ -2384,6 +2384,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PositionSettup
       objectReference: {fileID: 0}
+    - target: {fileID: 5368581915116463212, guid: 5ffeaf5d74c5dd54c9b2d2986da73d57,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5999133504018780435, guid: 5ffeaf5d74c5dd54c9b2d2986da73d57,
         type: 3}
       propertyPath: m_RootOrder

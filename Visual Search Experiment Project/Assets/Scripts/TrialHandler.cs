@@ -158,15 +158,6 @@ public class TrialHandler : MonoBehaviour
         int spawnCount = 0;
         foreach (VisualCue cue in trial.allVisualCues)
         {
-            if (cue.isTarget)
-            {
-                trial.targetShown = true;
-            }
-            else
-            {
-                trial.targetShown = false;
-            }
-
             for (int rep = 0; rep < cue.count; rep++)
             {
                 Vector3 rotation;
@@ -188,8 +179,18 @@ public class TrialHandler : MonoBehaviour
                   instantiatedStimuliContainer
                   );
 
-
+                if (cue.isTarget)
+                {
+                    trial.targetShown = true;
+                    trial.targLocX = temp.transform.localPosition.x;
+                    trial.targLocY = temp.transform.localPosition.y;
+                }
+                else
+                {
+                    trial.targetShown = false;
+                }
                 spawnCount++;
+
             }
         }
     }

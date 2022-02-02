@@ -22,6 +22,10 @@ public class TrialParametersSO : ScriptableObject
     [HideInInspector] public string response;
     [HideInInspector] public bool trialPassed;
     [HideInInspector] public double reactionTime;
+    [HideInInspector] public float targLocX;
+    [HideInInspector] public float targLocY;
+
+
 
     private void Awake()
     {

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -8741,37 +8741,37 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   colorGradientTexture: {fileID: 0}
   shallowColor: {r: 0, g: 0.7725491, b: 0.62352943, a: 0.5019608}
-  deepColor: {r: 0.01176471, g: 0.28621843, b: 0.50980073, a: 1}
+  deepColor: {r: 0.01176471, g: 0.2861194, b: 0.50980073, a: 1}
   colorDepth: 0.8
-  horizonColor: {r: 0, g: 0.22739494, b: 0.8, a: 1}
+  horizonColor: {r: 0, g: 0.2272959, b: 0.8, a: 1}
   horizonDistance: 20
   shoreFade: 1
-  shoreColor: {r: 0, g: 0.98039216, b: 0.30190474, a: 0}
+  shoreColor: {r: 0, g: 0.98039216, b: 0.3018057, a: 0}
   shoreStrength: 0
   shoreBlend: 1
   shoreDepth: -6.35
   waveColor: {r: 0, g: 0, b: 0, a: 0}
-  underwaterColor: {r: 0.20386845, g: 0.30974784, b: 0.517647, a: 0}
+  underwaterColor: {r: 0.20377457, g: 0.30964878, b: 0.517647, a: 0}
   underwaterColorStrength: 0
   underwaterRefractionStrength: 0.099
   surfaceFoamTexture: {fileID: 2800000, guid: d3b0d77dfe711a04c8ff18ecc260aa66, type: 3}
-  surfaceFoamSampling: {x: 0.62, y: 0}
-  surfaceFoamCutoff: 0.62
+  surfaceFoamSampling: {x: 1, y: 0}
+  surfaceFoamCutoff: 1
   surfaceFoamDistortion: 0
   surfaceFoamBlend: 1
   surfaceFoamColor1: {r: 1, g: 1, b: 1, a: 0.3215686}
   surfaceFoamColor2: {r: 1, g: 1, b: 1, a: 0.7294118}
-  surfaceFoamMovement: {x: 0.7, y: 0, z: 0.47, w: 0.01}
+  surfaceFoamMovement: {x: 0.7, y: 0.11, z: 0.47, w: 0.01}
   surfaceFoamDirection1: 0.7
   surfaceFoamDirection2: 0.47
-  surfaceFoamSpeed1: 0
+  surfaceFoamSpeed1: 0.11
   surfaceFoamSpeed2: 0.01
-  surfaceFoamTilingAndOffset: {x: -1, y: -1, z: 0.57, w: 0.22}
-  surfaceFoamOffsetX: -1
+  surfaceFoamTilingAndOffset: {x: 1, y: -1, z: 0.08, w: 0.07}
+  surfaceFoamOffsetX: 1
   surfaceFoamOffsetY: -1
-  surfaceFoamScale1: 0.57
-  surfaceFoamScale2: 0.22
-  enableSurfaceFoam: 0
+  surfaceFoamScale1: 0.08
+  surfaceFoamScale2: 0.07
+  enableSurfaceFoam: 1
   surfaceFoamHeightMask: 0
   surfaceFoamHeightMaskSmoothness: 0
   enableHeightMask: 0
@@ -8810,16 +8810,16 @@ MonoBehaviour:
   normalsScale: 0.36
   normalsSpeed: 0.04
   refractionStrength: 0.022
-  waveVisuals: {x: 0.04, y: 11.3, z: 0.32}
-  waveSteepness: 0.04
-  waveLength: 11.3
-  waveSpeed: 0.32
-  waveDirections: {x: 0, y: 0.734, z: 0.443, w: 0.641}
-  waveDirection1: 0
+  waveVisuals: {x: 0.007, y: 20, z: 0.96}
+  waveSteepness: 0.007
+  waveLength: 20
+  waveSpeed: 0.96
+  waveDirections: {x: 0.17, y: 0.734, z: 0.443, w: 0.641}
+  waveDirection1: 0.17
   waveDirection2: 0.734
   waveDirection3: 0.443
   waveDirection4: 0.641
-  waterUVs: 1
+  waterUVs: 0
   hideComponents: 0
   enableFoamShadows: 1
   enableRefraction: 0

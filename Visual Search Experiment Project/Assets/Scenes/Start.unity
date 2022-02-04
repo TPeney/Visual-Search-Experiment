@@ -1017,6 +1017,16 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: VR Full
       m_Image: {fileID: 0}
+    - m_Text: Env - Boat
+      m_Image: {fileID: 0}
+    - m_Text: Env - Desert
+      m_Image: {fileID: 0}
+    - m_Text: Env - Forest
+      m_Image: {fileID: 0}
+    - m_Text: Env - Mountain
+      m_Image: {fileID: 0}
+    - m_Text: Env - Space
+      m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []

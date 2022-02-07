@@ -82,12 +82,13 @@ public class ExperimentStart : MonoBehaviour
         ExperimentHandler.condition = conditionIndex;
         ExperimentHandler.PID = PID;
         ExperimentHandler.session = session;
+        ExperimentHandler.conditionName = SceneManager.GetSceneByBuildIndex(ExperimentHandler.condition).name;
     }
     private void CreateDirectories()
     {
         // Ensure Data Directories have been created 
         System.IO.Directory.CreateDirectory(Application.dataPath + "/Data"); // Overall
-        System.IO.Directory.CreateDirectory(Application.dataPath + $"/Data/{ExperimentHandler.condition}"); // Current Condition
+        System.IO.Directory.CreateDirectory(Application.dataPath + $"/Data/{ExperimentHandler.conditionName}"); // Current Condition
     }
 }
 

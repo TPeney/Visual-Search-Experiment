@@ -1017,8 +1017,6 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: VR Full
       m_Image: {fileID: 0}
-    - m_Text: Env - Boat
-      m_Image: {fileID: 0}
     - m_Text: Env - Desert
       m_Image: {fileID: 0}
     - m_Text: Env - Forest

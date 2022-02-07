@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [CreateAssetMenu(menuName = "Trial", fileName = "New Trial")]
 public class TrialParametersSO : ScriptableObject
 {
     [HideInInspector] public int condition = -1;
+    [HideInInspector] public string conditionName;
 
     // Trial Stimuli
     public string trialName;
@@ -29,6 +31,8 @@ public class TrialParametersSO : ScriptableObject
 
     private void Awake()
     {
+        conditionName = SceneManager.GetActiveScene().name;
+
         trialName = this.name;
         arraySize = 0;
         foreach (var cue in allVisualCues)

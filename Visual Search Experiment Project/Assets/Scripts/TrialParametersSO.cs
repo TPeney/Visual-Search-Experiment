@@ -6,8 +6,10 @@ using UnityEngine.SceneManagement;
 [CreateAssetMenu(menuName = "Trial", fileName = "New Trial")]
 public class TrialParametersSO : ScriptableObject
 {
+    // Meta Data
     [HideInInspector] public int condition = -1;
     [HideInInspector] public string conditionName;
+    [HideInInspector] public string PID;
 
     // Trial Stimuli
     public string trialName;

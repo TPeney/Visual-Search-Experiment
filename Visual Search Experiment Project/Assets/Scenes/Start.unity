@@ -1205,10 +1205,6 @@ MonoBehaviour:
       m_Image: {fileID: 0}
     - m_Text: Env - Desert
       m_Image: {fileID: 0}
-    - m_Text: Env - Forest
-      m_Image: {fileID: 0}
-    - m_Text: Env - Mountain
-      m_Image: {fileID: 0}
     - m_Text: Env - Space
       m_Image: {fileID: 0}
   m_OnValueChanged:

@@ -80,7 +80,7 @@ public class ExperimentHandler : MonoBehaviour
     public void SaveResults(List<TrialParametersSO> trialList)
     {
         string path = Application.dataPath +
-                    $"/Data/{conditionName}/" +
+                    $"/Data/{condition}/" +
                     $"Participant {PID}" +
                     $"_Visual_Search_Task" +
                     $"_({session}).csv";

@@ -56,7 +56,7 @@ public class ExperimentStart : MonoBehaviour
             SetExperimentParameters();
             CreateDirectories();
 
-            //XRGeneralSettings.Instance.Manager.StartSubsystems(); // Initialize VR 
+            XRGeneralSettings.Instance.Manager.StartSubsystems(); // Initialize VR 
 
             // At next frame (Update) - Tell ExperimentHandler to move on
             readyToStart = true;

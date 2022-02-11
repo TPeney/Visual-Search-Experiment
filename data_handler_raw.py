@@ -18,23 +18,34 @@ data_directories = [lab_path, desert_path, space_path]
 # Create a data frame for each condition 
 headers = ['condition', 'PID', '4-Target', '4-NoTarget', '12-Target', '12-NoTarget', 'trialsFailed']
 
-raw_dataframe = pandas.DataFrame()
 
 def append_data(csv_path, target_dataframe):
     datafile = pandas.read_csv(csv_path)
-    print(datafile)
-    datafile.replace(to_replace='VR - Full', value= 'Lab')  
-    target_dataframe = pandas.concat([target_dataframe, datafile], ignore_index=True)
+
+    datafile.replace(to_replace='3 - VR Full', value= 'Lab', inplace= True)  
+    datafile["targetShown"].replace(to_replace='FALSE', value= 'Absent', inplace= True)  
+    datafile["targetShown"].replace(to_replace='TRUE', value= 'Present', inplace= True)  
+
+    datafile = datafile.round(0)
+
+    datafile.drop('condition', axis= 1, inplace= True)
+    datafile.drop('allVisualCues', axis= 1, inplace= True)
+    datafile.drop('trialName', axis= 1, inplace= True)
+    target_dataframe = pandas.concat([target_dataframe, datafile])
+    return target_dataframe
 
 def handle_data():
+    raw_dataframe = pandas.DataFrame()
     current_index = 0
     while current_index < len(lab_path):
-        print(lab_path[current_index])
-        append_data(lab_path[current_index], raw_dataframe)
-        append_data(desert_path[current_index], raw_dataframe)
-        append_data(space_path[current_index], raw_dataframe)
+        raw_dataframe = append_data(lab_path[current_index], raw_dataframe)
+        raw_dataframe = append_data(desert_path[current_index], raw_dataframe)
+        raw_dataframe = append_data(space_path[current_index], raw_dataframe)
+        current_index += 1
+    return raw_dataframe
 
-handle_data()
+raw_dataframe = handle_data()
+
 # Export as seperate pages of 1 excel doc
 writer = pandas.ExcelWriter(f'{data_path}env-pilot-datafile-raw.xlsx')
 raw_dataframe.to_excel(writer, 'raw_data', index=False, header=True)

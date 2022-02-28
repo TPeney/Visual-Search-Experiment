@@ -12,6 +12,9 @@ public class ExperimentHandler : MonoBehaviour
     [HideInInspector] public static string PID;
     [HideInInspector] public static string session;
     [HideInInspector] public static int condition;
+    [HideInInspector] public static string conditionName;
+
+
 
     [HideInInspector] public static bool experimentStarted;
     private int currentComponent = 0;

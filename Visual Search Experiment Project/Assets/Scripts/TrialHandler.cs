@@ -112,6 +112,8 @@ public class TrialHandler : MonoBehaviour
         {
             fullTrialList[t].trialN = t + 1;
             fullTrialList[t].condition = ExperimentHandler.condition;
+            fullTrialList[t].PID = ExperimentHandler.PID;
+
         }
 
         // Randomise order of trial list

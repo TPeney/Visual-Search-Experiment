@@ -15,7 +15,8 @@ public class ExperimentStart : MonoBehaviour
     public TMP_InputField PID_Input;
     public TextMeshProUGUI sessionText;
     public Button startButton;
-    public GameObject warningText;
+    public TextMeshProUGUI warningText;
+    private string errorText;
 
     private readonly string session = DateTime.Now.ToString("dd.MM.yy_HH-mm");
     private string PID;
@@ -48,28 +49,37 @@ public class ExperimentStart : MonoBehaviour
 
     public void BeginExperimentPress() // When Button Pressed:
     {
-        // Sets Temp PID based on InputBox current text
-        PID = PID_Input.text;
+        bool inputValid = CheckInput();
 
-        if (Int32.TryParse(PID, out int i)) // If PID is a valid int:
+        if (inputValid) // start
         {
             SetExperimentParameters();
             CreateDirectories();
 
             XRGeneralSettings.Instance.Manager.StartSubsystems(); // Initialize VR 
-            // Disable VR Tracking in 2D
-            if (ExperimentHandler.condition == 0)
-            {
-            }
-            XRGeneralSettings.Instance.Manager.StartSubsystems(); // Initialize VR 
+
             // At next frame (Update) - Tell ExperimentHandler to move on
             readyToStart = true;
         }
-        else // If PID can't be converted to a number:
+        else 
         {
-            warningText.SetActive(true); // Display a warning if PID box has spaces/is empty
+            warningText.text = errorText;
         }
     }
+
+    private bool CheckInput()
+    {
+        PID = PID_Input.text; // Sets Temp PID based on InputBox current text
+        if (!Int32.TryParse(PID, out int i)) // If PID can't be converted to a number Display a warning if PID box has spaces/is empty
+        {
+            errorText = "Input a valid PID";
+            return false;
+        }
+
+        errorText = "";
+        return true;
+    }
+     
     private void SetExperimentParameters()
     {
         // Set metadata variables of ExperimentHandler
@@ -82,6 +92,7 @@ public class ExperimentStart : MonoBehaviour
         ExperimentHandler.condition = conditionIndex;
         ExperimentHandler.PID = PID;
         ExperimentHandler.session = session;
+
     }
     private void CreateDirectories()
     {

@@ -30,20 +30,6 @@ public class ExperimentHandler : MonoBehaviour
         //ManageSingleton();
         SetUpComponentList();
     }
-        
-    private void ManageSingleton()
-    { // Create Singleton
-        if (instance != null)
-        {
-            gameObject.SetActive(false);
-            Destroy(gameObject);
-        }
-        else
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-    }
     private void SetUpComponentList()
     {
         foreach (Transform component in gameObject.GetComponentInChildren<Transform>())
@@ -56,7 +42,7 @@ public class ExperimentHandler : MonoBehaviour
             component.SetActive(false);
         }
     }
-
+    
     void Update()
     {
         if (!activeComponent && experimentStarted)
@@ -72,20 +58,23 @@ public class ExperimentHandler : MonoBehaviour
         }
     }
 
+    //private void ManageSingleton()
+    //{ // Create Singleton
+    //    if (instance != null)
+    //    {
+    //        gameObject.SetActive(false);
+    //        Destroy(gameObject);
+    //    }
+    //    else
+    //    {
+    //        instance = this;
+    //        DontDestroyOnLoad(gameObject);
+    //    }
+    //}
+ 
     public void ComponentComplete()
     {
         componentRunning = false;
-    }
-
-    public void SaveResults(List<TrialParametersSO> trialList)
-    {
-        string path = Application.dataPath +
-                    $"/Data/{condition}/" +
-                    $"Participant {PID}" +
-                    $"_Visual_Search_Task" +
-                    $"_({session}).csv";
-
-        Csv.CsvUtil.SaveObjects(trialList, path);
     }
 
     IEnumerator ShowElement()
@@ -107,6 +96,17 @@ public class ExperimentHandler : MonoBehaviour
         experimentComponents[currentComponent].SetActive(false);
         currentComponent++;
         activeComponent = false;
+    }
+
+    public void SaveResults(List<TrialParametersSO> trialList)
+    {
+        string path = Application.dataPath +
+                    $"/Data/{condition}/" +
+                    $"Participant {PID}" +
+                    $"_Visual_Search_Task" +
+                    $"_({session}).csv";
+
+        Csv.CsvUtil.SaveObjects(trialList, path);
     }
 }
 

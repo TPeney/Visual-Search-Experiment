@@ -70,9 +70,12 @@ public class TrialHandler : MonoBehaviour
 
     void Update()
     {
-        if (!trialRunning && currentTrialIndex < trialList.Count )
+        if (currentTrialIndex < trialList.Count)
         {
-            StartCoroutine(RunTrial(trialList[currentTrialIndex]));
+            if (!trialRunning)
+            {
+                StartCoroutine(RunTrial(trialList[currentTrialIndex]));
+            }
         }
         else
         {

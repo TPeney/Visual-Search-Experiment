@@ -21,7 +21,7 @@ public class ResponseHandler : MonoBehaviour
 
     void OnRespondTargetPresent(InputValue value)
     {
-        if (trialHandler.awaitingResponse)
+        if (trialHandler != null && trialHandler.awaitingResponse)
         {
             trialHandler.timeOfResponse = DateTime.Now;
             trialHandler.response = "Present";
@@ -32,7 +32,7 @@ public class ResponseHandler : MonoBehaviour
 
     void OnRespondTargetAbsent(InputValue value)
     {
-        if (trialHandler.awaitingResponse)
+        if (trialHandler != null && trialHandler.awaitingResponse)
         {
             trialHandler.timeOfResponse = DateTime.Now;
             trialHandler.response = "Absent";
@@ -50,7 +50,7 @@ public class ResponseHandler : MonoBehaviour
             experimentHandler.awaitingResponse = false;
             experimentHandler.ComponentComplete();
         }
-        else if (trialHandler.takingBreak)
+        else if (trialHandler != null && trialHandler.takingBreak)
         {
             trialHandler.takingBreak = false;
         }

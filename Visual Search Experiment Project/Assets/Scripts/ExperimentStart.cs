@@ -11,13 +11,16 @@ using TMPro;
 public class ExperimentStart : MonoBehaviour
 {
     ExperimentHandler experimentHandler;
+
+    // GUI Components
     public TMP_Dropdown conditionSelector; // UI Dropdown to select condition - !! Order must match the order of the condition list on ExperimentHandler
     public TMP_InputField PID_Input;
     public TextMeshProUGUI sessionText;
     public Button startButton;
     public TextMeshProUGUI warningText;
-    private string errorText;
 
+    // Local vars
+    private string errorText;
     private readonly string session = DateTime.Now.ToString("dd.MM.yy_HH-mm");
     private string PID;
     private bool readyToStart = false;
@@ -25,14 +28,14 @@ public class ExperimentStart : MonoBehaviour
     private void Awake()
     {
         experimentHandler = FindObjectOfType<ExperimentHandler>();
-        XRGeneralSettings.Instance.Manager.StopSubsystems();
+        XRGeneralSettings.Instance.Manager.StopSubsystems(); // Disable VR so GUI works on desktop
     }
 
     void Start()
     {
         // Settup Start Button
         Button btn = startButton.GetComponent<Button>(); // Create Reference
-        btn.onClick.AddListener(BeginExperimentPress); // When clicked - Run BeginExperimentPress Function
+        btn.onClick.AddListener(BeginExperimentPress); // Run function on every click
 
         // Set Session Text UI to display current DateTime
         sessionText.SetText(session);
@@ -42,24 +45,23 @@ public class ExperimentStart : MonoBehaviour
     {
         if (readyToStart)
         {
-            SceneManager.LoadScene(ExperimentHandler.condition + 1);
+            SceneManager.LoadScene(ExperimentHandler.condition + 1); // +1 as 0 is starting scene 
             ExperimentHandler.experimentStarted = true;
         }   
     }
 
     public void BeginExperimentPress() // When Button Pressed:
     {
-        bool inputValid = CheckInput();
+        bool inputValid = CheckInput(); 
 
-        if (inputValid) // start
+        if (inputValid)
         {
             SetExperimentParameters();
             CreateDirectories();
 
             XRGeneralSettings.Instance.Manager.StartSubsystems(); // Initialize VR 
 
-            // At next frame (Update) - Tell ExperimentHandler to move on
-            readyToStart = true;
+            readyToStart = true; // At next frame (Update) load the experiment scene
         }
         else 
         {
@@ -67,10 +69,10 @@ public class ExperimentStart : MonoBehaviour
         }
     }
 
-    private bool CheckInput()
+    private bool CheckInput() // Type-check input 
     {
         PID = PID_Input.text; // Sets Temp PID based on InputBox current text
-        if (!Int32.TryParse(PID, out int i)) // If PID can't be converted to a number Display a warning if PID box has spaces/is empty
+        if (!Int32.TryParse(PID, out int i)) // If PID can't be converted to a number, Display a warning if PID box has spaces/is empty
         {
             errorText = "Input a valid PID";
             return false;
@@ -80,11 +82,9 @@ public class ExperimentStart : MonoBehaviour
         return true;
     }
      
-    private void SetExperimentParameters()
+    private void SetExperimentParameters() // Set metadata variables of ExperimentHandler
     {
-        // Set metadata variables of ExperimentHandler
-
-        /* Set Condition (Object) Based of Dropdown Value
+        /* Set Condition Based on Dropdown Value
          * 0 = 2D
          * 1 = VR Int
          * 2 = VR Full */
@@ -92,11 +92,10 @@ public class ExperimentStart : MonoBehaviour
         ExperimentHandler.condition = conditionIndex;
         ExperimentHandler.PID = PID;
         ExperimentHandler.session = session;
-
     }
-    private void CreateDirectories()
+
+    private void CreateDirectories() // Ensure Data Directories have been created 
     {
-        // Ensure Data Directories have been created 
         System.IO.Directory.CreateDirectory(Application.dataPath + "/Data"); // Overall
         System.IO.Directory.CreateDirectory(Application.dataPath + $"/Data/{ExperimentHandler.condition}"); // Current Condition
     }

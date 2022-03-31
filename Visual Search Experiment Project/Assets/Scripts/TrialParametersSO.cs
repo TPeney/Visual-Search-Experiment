@@ -29,8 +29,6 @@ public class TrialParametersSO : ScriptableObject
     [HideInInspector] public float targLocX;
     [HideInInspector] public float targLocY;
 
-
-
     private void Awake()
     {
         conditionName = SceneManager.GetActiveScene().name;

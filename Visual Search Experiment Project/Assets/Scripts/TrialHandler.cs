@@ -70,13 +70,9 @@ public class TrialHandler : MonoBehaviour
 
     void Update()
     {
-        // If a trial isn't currently active - run a trial 
-        if (currentTrialIndex < trialList.Count)
+        if (!trialRunning && currentTrialIndex < trialList.Count )
         {
-            if (!trialRunning)
-            {
-                StartCoroutine(RunTrial(trialList[currentTrialIndex]));
-            }
+            StartCoroutine(RunTrial(trialList[currentTrialIndex]));
         }
         else
         {
@@ -95,7 +91,7 @@ public class TrialHandler : MonoBehaviour
          fields in each Trial SO. */
 
         // Populate a list based on given trials and nReps
-        List <TrialParametersSO> tempTrialList = trialList;
+        List<TrialParametersSO> tempTrialList = trialList;
         List<TrialParametersSO> fullTrialList = new List<TrialParametersSO>();
         
         for (int i = 0; i < nReps; i++)
@@ -113,7 +109,6 @@ public class TrialHandler : MonoBehaviour
             fullTrialList[t].trialN = t + 1;
             fullTrialList[t].condition = ExperimentHandler.condition;
             fullTrialList[t].PID = ExperimentHandler.PID;
-
         }
 
         // Randomise order of trial list
@@ -176,7 +171,7 @@ public class TrialHandler : MonoBehaviour
 
                 GameObject temp = Instantiate(
                   cue.model,
-                  cueLocations[spawnCount].transform.position,
+                  cueLocations[spawnCount].transform.position, // Index 0, 1, 2.. etc shuffled each time -> random positions
                   cueLocations[spawnCount].transform.rotation * Quaternion.Euler(rotation),
                   instantiatedStimuliContainer
                   );
@@ -192,7 +187,6 @@ public class TrialHandler : MonoBehaviour
                     trial.targetShown = false;
                 }
                 spawnCount++;
-
             }
         }
     }
@@ -216,7 +210,6 @@ public class TrialHandler : MonoBehaviour
         if ((trial.targetShown && response == "Present") || (!trial.targetShown && response == "Absent"))
         {
             trial.trialPassed = true;
-
         }
         else
         {
@@ -229,7 +222,7 @@ public class TrialHandler : MonoBehaviour
         trialRunning = true;
 
         // Check for break screen
-        if (breakScreen != null)
+        if (breakScreen != null) // If not set in inspector - no breaks desired
         {
             if (breakIndices.Contains(currentTrialIndex))
             {

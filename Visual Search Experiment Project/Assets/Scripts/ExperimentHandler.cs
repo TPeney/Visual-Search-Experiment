@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class ExperimentHandler : MonoBehaviour
 {
-    
     public List<GameObject> experimentComponents = new List<GameObject>();
 
     // Experiment-Wide Parameters 
@@ -14,23 +13,21 @@ public class ExperimentHandler : MonoBehaviour
     [HideInInspector] public static int condition;
     [HideInInspector] public static string conditionName;
 
-
-
+    // Running Status Parameters 
+    [HideInInspector] public TrialHandler currentTrialHandler; // Used by ResponseHandler
     [HideInInspector] public static bool experimentStarted;
     private int currentComponent = 0;
     public bool componentRunning = false;
     public bool awaitingResponse = false;
-    bool activeComponent = false;
-    [HideInInspector] public TrialHandler currentTrialHandler;
 
-    static ExperimentHandler instance;
+    //static ExperimentHandler instance;
 
     private void Awake()
     {
         //ManageSingleton();
         SetUpComponentList();
     }
-    private void SetUpComponentList()
+    private void SetUpComponentList() // All components should be added as children to a parent with this script
     {
         foreach (Transform component in gameObject.GetComponentInChildren<Transform>())
         {
@@ -45,7 +42,7 @@ public class ExperimentHandler : MonoBehaviour
     
     void Update()
     {
-        if (!activeComponent && experimentStarted)
+        if (!componentRunning && experimentStarted)
         {
             if (currentComponent < experimentComponents.Count)
             {
@@ -72,30 +69,24 @@ public class ExperimentHandler : MonoBehaviour
     //    }
     //}
  
-    public void ComponentComplete()
-    {
-        componentRunning = false;
-    }
-
     IEnumerator ShowElement()
     {
-        activeComponent = true;
         componentRunning = true;
         experimentComponents[currentComponent].SetActive(true);
 
-        if (experimentComponents[currentComponent].GetComponent<TrialHandler>() != null)
-        {
-            currentTrialHandler = experimentComponents[currentComponent].GetComponent<TrialHandler>();
-        }
+        currentTrialHandler = experimentComponents[currentComponent].GetComponent<TrialHandler>(); // null if no trials running
 
-        while (componentRunning)
+        while (componentRunning) // Set to false by ResponseHandler or TrialHandler - calls ComponentComplete()
         {
             yield return null;
         }
+    }
 
+    public void ComponentComplete()
+    {
         experimentComponents[currentComponent].SetActive(false);
         currentComponent++;
-        activeComponent = false;
+        componentRunning = false;
     }
 
     public void SaveResults(List<TrialParametersSO> trialList)

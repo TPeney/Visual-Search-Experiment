@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class ExperimentHandler : MonoBehaviour
 {
@@ -10,7 +11,9 @@ public class ExperimentHandler : MonoBehaviour
     // Experiment-Wide Parameters 
     [HideInInspector] public static string PID;
     [HideInInspector] public static string session;
-    [HideInInspector] public static int condition;
+    public static List<int> conditionOrder;
+    private static int currentConditionIndex = 0;
+    [HideInInspector] public static int currentCondition;
     [HideInInspector] public static string conditionName;
 
     // Running Status Parameters 
@@ -48,10 +51,17 @@ public class ExperimentHandler : MonoBehaviour
             {
                 StartCoroutine(ShowElement());
             }
+            else if (currentConditionIndex < conditionOrder.Count)
+            {
+                currentConditionIndex += 1;
+                currentCondition = conditionOrder[currentConditionIndex];
+                SceneManager.LoadScene(ExperimentHandler.currentCondition);
+            }
             else
             {
                 Application.Quit();
             }
+            
         }
     }
 
@@ -91,8 +101,10 @@ public class ExperimentHandler : MonoBehaviour
 
     public void SaveResults(List<TrialParametersSO> trialList)
     {
+        System.IO.Directory.CreateDirectory(Application.dataPath + $"/Data/{ExperimentHandler.currentCondition}"); // Current Condition
+
         string path = Application.dataPath +
-                    $"/Data/{condition}/" +
+                    $"/Data/{currentCondition}/" +
                     $"Participant {PID}" +
                     $"_Visual_Search_Task" +
                     $"_({session}).csv";

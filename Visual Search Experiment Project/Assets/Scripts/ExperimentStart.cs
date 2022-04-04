@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -13,7 +14,10 @@ public class ExperimentStart : MonoBehaviour
     ExperimentHandler experimentHandler;
 
     // GUI Components
-    public TMP_Dropdown conditionSelector; // UI Dropdown to select condition - !! Order must match the order of the condition list on ExperimentHandler
+    public TMP_Dropdown conditionSelector1; // UI Dropdown to select condition - !! Order must match the order of the condition list on ExperimentHandler
+    public TMP_Dropdown conditionSelector2;
+    public TMP_Dropdown conditionSelector3;
+
     public TMP_InputField PID_Input;
     public TextMeshProUGUI sessionText;
     public Button startButton;
@@ -23,12 +27,14 @@ public class ExperimentStart : MonoBehaviour
     private string errorText;
     private readonly string session = DateTime.Now.ToString("dd.MM.yy_HH-mm");
     private string PID;
+    List<int> conditionOrder = new List<int>();
     private bool readyToStart = false;
+
 
     private void Awake()
     {
         experimentHandler = FindObjectOfType<ExperimentHandler>();
-        XRGeneralSettings.Instance.Manager.StopSubsystems(); // Disable VR so GUI works on desktop
+        /*XRGeneralSettings.Instance.Manager.StopSubsystems();*/ // Disable VR so GUI works on desktop
     }
 
     void Start()
@@ -45,7 +51,7 @@ public class ExperimentStart : MonoBehaviour
     {
         if (readyToStart)
         {
-            SceneManager.LoadScene(ExperimentHandler.condition + 1); // +1 as 0 is starting scene 
+            SceneManager.LoadScene(ExperimentHandler.currentCondition + 1); // +1 as 0 is starting scene 
             ExperimentHandler.experimentStarted = true;
         }   
     }
@@ -78,6 +84,18 @@ public class ExperimentStart : MonoBehaviour
             return false;
         }
 
+        // Check for all unique items in condition order list
+        conditionOrder.Add(conditionSelector1.value);
+        conditionOrder.Add(conditionSelector2.value);
+        conditionOrder.Add(conditionSelector3.value);
+
+        if (conditionOrder.Distinct().Count() != conditionOrder.Count) 
+        {
+            errorText = "A duplicate condition has been inputted.";
+            conditionOrder.Clear();
+            return false;
+        }
+
         errorText = "";
         return true;
     }
@@ -88,8 +106,9 @@ public class ExperimentStart : MonoBehaviour
          * 0 = 2D
          * 1 = VR Int
          * 2 = VR Full */
-        int conditionIndex = conditionSelector.value;
-        ExperimentHandler.condition = conditionIndex;
+
+        ExperimentHandler.conditionOrder = conditionOrder;
+        ExperimentHandler.currentCondition = conditionOrder[0];
         ExperimentHandler.PID = PID;
         ExperimentHandler.session = session;
     }
@@ -97,7 +116,6 @@ public class ExperimentStart : MonoBehaviour
     private void CreateDirectories() // Ensure Data Directories have been created 
     {
         System.IO.Directory.CreateDirectory(Application.dataPath + "/Data"); // Overall
-        System.IO.Directory.CreateDirectory(Application.dataPath + $"/Data/{ExperimentHandler.condition}"); // Current Condition
     }
 }
 

@@ -110,7 +110,7 @@ public class TrialHandler : MonoBehaviour
         for (int t = 0; t < fullTrialList.Count; t++)
         {
             fullTrialList[t].trialN = t + 1;
-            fullTrialList[t].condition = ExperimentHandler.condition;
+            fullTrialList[t].condition = ExperimentHandler.currentCondition;
             fullTrialList[t].PID = ExperimentHandler.PID;
         }
 

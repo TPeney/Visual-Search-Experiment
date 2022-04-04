@@ -17,10 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/3 - VR Full.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Environments/Desert.unity
     guid: 40b9561a3906bcb42a4ca2be5b40db1b
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Environments/Space.unity
     guid: d6ea9c31974032d44b9f5f1c3d3702ac
   m_configObjects:

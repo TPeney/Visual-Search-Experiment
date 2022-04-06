@@ -98,21 +98,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'The experiment is now over.
-
-
-    Thank you for your time.
-
-
-    Please
-    inform the researcher that you have finished.
-
-
-    Press trigger to close the
-    application.
-
-
-'
+  m_text: "The block is now over.\n\nIf you are not yet finished, you will be taken
+    to the next stage. \n\nIf you are finished, the application will close. Please
+    inform the researcher if this happens.\n\nPress the trigger to continue.\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -286,9 +274,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   experimentComponents: []
+  currentTrialHandler: {fileID: 0}
   componentRunning: 0
   awaitingResponse: 0
-  currentTrialHandler: {fileID: 0}
 --- !u!114 &1480007993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1119,7 +1107,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8279903391631530984}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9575720a729089e42b233d36cbe8467e, type: 3}
   m_Name: 

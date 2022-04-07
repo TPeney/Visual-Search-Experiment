@@ -51,7 +51,7 @@ public class ExperimentStart : MonoBehaviour
     {
         if (readyToStart)
         {
-            SceneManager.LoadScene(ExperimentHandler.currentCondition + 1); // +1 as 0 is starting scene 
+            SceneManager.LoadScene(ExperimentHandler.conditionOrder[0]); // +1 as 0 is starting scene 
             ExperimentHandler.experimentStarted = true;
         }   
     }
@@ -85,9 +85,9 @@ public class ExperimentStart : MonoBehaviour
         }
 
         // Check for all unique items in condition order list
-        conditionOrder.Add(conditionSelector1.value);
-        conditionOrder.Add(conditionSelector2.value);
-        conditionOrder.Add(conditionSelector3.value);
+        conditionOrder.Add(conditionSelector1.value + 1);
+        conditionOrder.Add(conditionSelector2.value + 1);
+        conditionOrder.Add(conditionSelector3.value + 1);
 
         if (conditionOrder.Distinct().Count() != conditionOrder.Count) 
         {
@@ -108,7 +108,6 @@ public class ExperimentStart : MonoBehaviour
          * 2 = VR Full */
 
         ExperimentHandler.conditionOrder = conditionOrder;
-        ExperimentHandler.currentCondition = conditionOrder[0];
         ExperimentHandler.PID = PID;
         ExperimentHandler.session = session;
     }

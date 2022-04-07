@@ -12,8 +12,7 @@ public class ExperimentHandler : MonoBehaviour
     [HideInInspector] public static string PID;
     [HideInInspector] public static string session;
     public static List<int> conditionOrder;
-    private static int currentConditionIndex = 0;
-    [HideInInspector] public static int currentCondition;
+    public static int currentConditionIndex = 0;
     [HideInInspector] public static string conditionName;
 
     // Running Status Parameters 
@@ -49,16 +48,20 @@ public class ExperimentHandler : MonoBehaviour
         {
             if (currentComponent < experimentComponents.Count)
             {
+                Debug.Log("Show Element");
                 StartCoroutine(ShowElement());
             }
             else if (currentConditionIndex < conditionOrder.Count)
             {
+                Debug.Log("Current = " + currentConditionIndex);
                 currentConditionIndex += 1;
-                currentCondition = conditionOrder[currentConditionIndex];
-                SceneManager.LoadScene(ExperimentHandler.currentCondition);
+                Debug.Log("New = " + currentConditionIndex);
+                Debug.Log("Scene Index = " + conditionOrder[currentConditionIndex]);
+                SceneManager.LoadScene(conditionOrder[currentConditionIndex]);
             }
             else
             {
+                Debug.Log("Quit");
                 Application.Quit();
             }
             
@@ -101,10 +104,10 @@ public class ExperimentHandler : MonoBehaviour
 
     public void SaveResults(List<TrialParametersSO> trialList)
     {
-        System.IO.Directory.CreateDirectory(Application.dataPath + $"/Data/{ExperimentHandler.currentCondition}"); // Current Condition
+        System.IO.Directory.CreateDirectory(Application.dataPath + $"/Data/{conditionOrder[currentConditionIndex]}"); // Current Condition
 
         string path = Application.dataPath +
-                    $"/Data/{currentCondition}/" +
+                    $"/Data/{conditionOrder[currentConditionIndex]}/" +
                     $"Participant {PID}" +
                     $"_Visual_Search_Task" +
                     $"_({session}).csv";
